@@ -41,6 +41,10 @@ if [[ "$EUID" -eq 0 ]]; then
    exit 1
 fi
 
+clear
+
+echo "Welcome"
+
 ### stop asking for sudo password ###
 if confirm_action "Stop asking for sudo password forever?"; then
    if ! sudo grep -q "$(whoami)" /etc/sudoers; then
