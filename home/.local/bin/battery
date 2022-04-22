@@ -1,0 +1,56 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+if [ ! -d /sys/class/power_supply/BAT0/ ]; then
+   exit;
+fi
+
+capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+status=$(cat /sys/class/power_supply/BAT0/status)
+
+color=''
+bg=''
+
+if [[ "$status" == 'Full' ]]; then
+   icon=''
+   echo "${icon}"
+   exit
+elif [[ "$status" == 'Unknown' ]]; then
+   icon=''
+   echo "   ${icon}  ${capacity}%     "
+   exit
+elif [[ "$status" == 'Discharging' ]]; then
+   color='#ebdbb2'
+   if [[ "$capacity" -gt 90 ]]; then
+      icon=''
+   elif [[ "$capacity" -gt 70 ]]; then
+      icon=''
+   elif [[ "$capacity" -gt 50 ]]; then
+      icon=''
+   elif [[ "$capacity" -gt 30 ]]; then
+      icon=''
+      color='#fb4934'
+   else
+      icon=''
+      color="#fbf1c7"
+      bg="#cc241d"
+   fi
+elif [[ "$status" == 'Charging' ]]; then
+   icon=''
+   color='#689d6a'
+else
+	icon="${status}"
+fi
+
+echo "   ${icon} ${capacity}%     ";
+echo "${capacity}%"
+
+if [[ -n "$color" ]]; then
+   echo "${color}"
+fi
+
+if [[ -n "$bg" ]]; then
+   echo "${bg}"
+fi

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+load=$(awk '{ print $1 }' < /proc/loadavg)
+cores=$(grep ^cpu\\scores /proc/cpuinfo | uniq |  awk '{print $4}')
+float=$(echo "scale=2 ; ${load} / ${cores} * 100" | bc)
+perc=$(printf "%.f" "${float}")
+
+if [[ "$perc" -gt 99 ]]; then
+   showperc=99
+else
+   showperc="$perc"
+fi
+
+echo "  ${showperc}%"
+echo "${perc}"
+
+if [[ "$perc" -ge 100 ]]; then
+   exit 33
+elif [[ "$perc" -ge 50 ]]; then
+   echo "#ffaaaa"
+fi

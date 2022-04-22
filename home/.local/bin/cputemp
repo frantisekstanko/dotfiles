@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+temp=$(cat /sys/class/thermal/thermal_zone1/temp)
+temp=$(echo "${temp} / 1000" | bc)
+cel=$'\xc2\xb0'
+
+echo " ${temp}${cel}"
+echo "${temp}"
+
+if [[ "$temp" -ge 85 ]]; then
+   exit 33
+elif [[ "$temp" -gt 80 ]]; then
+   echo "#ffaaaa"
+fi

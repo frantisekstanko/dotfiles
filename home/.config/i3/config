@@ -1,0 +1,176 @@
+set $mod Mod1
+bindsym $mod+c exec --no-startup-id ~/.local/bin/kblayout && exec pkill -SIGRTMIN+12 i3blocks
+
+font pango:SF Compact Rounded, FontAwesome 15px
+
+exec_always --no-startup-id feh --bg-fill --no-fehbg --randomize ~/.wallpapers/*.jpg
+
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id \
+amixer -q -D pulse sset Master 1%+ && exec pkill -SIGRTMIN+10 i3blocks
+
+bindsym XF86AudioLowerVolume exec --no-startup-id \
+amixer -q -D pulse sset Master 1%- && exec pkill -SIGRTMIN+10 i3blocks
+
+bindsym XF86AudioMute exec --no-startup-id \
+pactl set-sink-mute @DEFAULT_SINK@ toggle && exec pkill -SIGRTMIN+10 i3blocks
+
+bindsym XF86AudioMicMute exec --no-startup-id \
+pactl set-source-mute @DEFAULT_SOURCE@ toggle && exec pkill -SIGRTMIN+10 i3blocks
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+floating_modifier $mod
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+q kill
+bindsym $mod+d   exec --no-startup-id rofi -show drun
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus right
+bindsym $mod+i focus up
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+i move up
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+o exec i3lock -c 000000 -e
+
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output primary
+workspace $ws4 output primary
+workspace $ws5 output primary
+workspace $ws6 output primary
+workspace $ws7 output primary
+workspace $ws8 output primary
+workspace $ws9 output primary
+workspace $ws10 output primary
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Shift+c reload
+
+bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit?' -B 'Exit i3' 'i3-msg exit' -B 'Suspend' 'systemctl suspend' -B 'Poweroff' 'systemctl poweroff'"
+
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+   bindsym j resize shrink width 20 px
+   bindsym i resize grow height 20 px
+   bindsym k resize shrink height 20 px
+   bindsym l resize grow width 20 px
+   bindsym Return mode "default"
+   bindsym Escape mode "default"
+   bindsym $mod+r mode "default"
+}
+
+set $barbg #1d2021
+
+bar {
+   status_command i3blocks
+   i3bar_command i3bar
+   position top
+   colors {
+      background $barbg
+      statusline #aaaaaa
+      separator #333333
+      focused_workspace  #282828   #282828   #fbf1c7
+      active_workspace   #1d2021   #1d2021   #ebdbb2
+      inactive_workspace $barbg    $barbg    #7c6f64
+      urgent_workspace   #ffaaaa   #ffaaaa   #000000
+      binding_mode       #cc241d   #cc241d   #fbf1c7
+   }
+   tray_output primary
+   tray_padding 8
+   height 36
+   workspace_min_width 40
+   strip_workspace_numbers yes
+}
+
+# smart_gaps on
+# smart_borders no_gaps
+default_border pixel 0
+gaps inner  8
+focus_follows_mouse no
+mouse_warping none
+
+for_window [class=".*"] border pixel 1
+
+set $windowBorder #111111
+
+# class                 border   backgr.  text    indicator       child_border
+client.focused          #282828  #282828  #eeeeee $windowBorder   $windowBorder
+client.unfocused        #111111  #1d2021  #7c6f64 $windowBorder   $windowBorder
+client.focused_inactive #1d2021  #1d2021  #7c6f64 $windowBorder   $windowBorder
+client.urgent           #1d2021  #1d2021  #7c6f64 $windowBorder   $windowBorder
+
+for_window [class=".*"] title_format "<span font='JetBrains Mono NL SemiBold 14px'> %title</span>"
+
+bindsym XF86MonBrightnessUp   exec --no-startup-id sudo brightnessctl set 1%+ && exec pkill -SIGRTMIN+11 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo brightnessctl set 1%- && exec pkill -SIGRTMIN+11 i3blocks
+bindsym XF86LaunchB           exec --no-startup-id sudo brightnessctl set 10%+ && exec pkill -SIGRTMIN+11 i3blocks
+bindsym XF86LaunchA           exec --no-startup-id sudo brightnessctl set 10%- && exec pkill -SIGRTMIN+11 i3blocks
+bindsym XF86KbdBrightnessUp   exec --no-startup-id sudo brightnessctl -d *kbd_backlight set 1%+
+bindsym XF86KbdBrightnessDown exec --no-startup-id sudo brightnessctl -d *kbd_backlight set 1%-
+
+bindsym $mod+bracketleft      exec --no-startup-id sudo brightnessctl set 10%- && exec pkill -SIGRTMIN+11 i3blocks
+bindsym $mod+bracketright     exec --no-startup-id sudo brightnessctl set 10%+ && exec pkill -SIGRTMIN+11 i3blocks
+
+bindsym $mod+Ctrl+j move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
+
+exec --no-startup-id i3-msg 'workspace $ws1; exec kitty;'
+
+bindsym $mod+p exec screenshot
+
+assign [class="firefox"] $ws2
+assign [class="Google-chrome"] $ws3
+
+bindsym $mod+x exec --no-startup-id ~/.local/bin/redshift-switch 3 && exec pkill -SIGRTMIN+14 i3blocks
+bindsym $mod+z exec --no-startup-id ~/.local/bin/redshift-switch 1 && exec pkill -SIGRTMIN+14 i3blocks
+
+for_window [class="vlc"] floating enable
+for_window [class="mpv"] floating enable

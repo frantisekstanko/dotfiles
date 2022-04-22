@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+layout=$(setxkbmap -query | grep 'layout' | awk '{print $2}')
+
+# for i3blocks
+if [[ "$#" -gt 0 ]]; then
+   if [[ "$1" == "get" ]]; then
+      if [[ "$layout" == "sk(qwerty)" ]]; then
+         echo " sk    ";
+         exit 33
+      else
+         exit; ## do not echo anything if the layout is US
+         echo " $layout ";
+      fi
+      exit
+   fi
+fi
+
+# for i3 bindsym
+if [[ $layout == "us" ]]; then
+   setxkbmap "sk(qwerty)"
+else
+   setxkbmap "us"
+fi

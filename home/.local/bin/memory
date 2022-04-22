@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+awk '
+/^MemTotal:/ {
+	mem_total=$2
+}
+/^MemFree:/ {
+	mem_free=$2
+}
+/^Buffers:/ {
+	buffers=$2
+}
+/^Cached:/ {
+	cached=$2
+}
+END {
+	mem_used=mem_total-mem_free-buffers-cached
+
+	pct=mem_used/mem_total*100
+
+   # full text
+	printf("  %.f%%\n", pct)
+
+	# short text
+	printf("%.f%%\n", pct)
+
+	if (pct >= 40 && pct < 60){
+		print("#ffffff")
+	}
+	else if (pct >= 60 && pct < 80){
+		print("#ffaaaa")
+	}
+	else if (pct >= 80){
+		exit 33
+	}
+}
+' /proc/meminfo

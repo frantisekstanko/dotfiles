@@ -1,0 +1,79 @@
+separator_block_width=1
+
+[redshift]
+command=~/.local/bin/redshift-switch
+interval=once
+signal=14
+
+[brightness]
+label=   
+command=echo "  $(brightnessctl -m | cut -d',' -f4)     "
+interval=once
+signal=11
+
+[weather1]
+label=   
+command=curl -Ss 'https://wttr.in/Amsterdam?format="%t"' | xargs | awk '{ print "  " $1 "     " }'
+interval=3600
+
+[volume-pulseaudio]
+command=~/.local/bin/volume-pulseaudio
+interval=10
+signal=10
+LONG_FORMAT="   ${SYMB}${VOL}%     "
+SHORT_FORMAT="${SYMB}${VOL}%"
+DEFAULT_COLOR="#999999"
+MUTED_COLOR="#ffaaaa"
+USE_ALSA_NAME=1
+
+[load]
+label=   
+command=~/.local/bin/load
+interval=1
+separator=false
+align=left
+min_width=74
+
+[cputemp]
+command=~/.local/bin/cputemp
+interval=1
+align=left
+min_width=42
+
+[memory]
+label=   
+command=~/.local/bin/memory
+interval=1
+align=left
+min_width=86
+
+[keyboard]
+label=   
+command=~/.local/bin/kblayout get
+interval=-1
+signal=12
+
+[battery]
+command=~/.local/bin/battery
+interval=5
+align=center
+min_width=46
+
+[date]
+command=date +"     %A    %Y-%m-%d"
+interval=60
+separator=false
+
+[time]
+command=date +"%H:%M"
+interval=1
+color=#eeeeee
+separator=false
+align=right
+min_width=48
+
+[sec]
+command=date +":%S"
+interval=1
+color=#999999
+min_width=50

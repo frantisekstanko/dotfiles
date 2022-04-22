@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -eo pipefail
+IFS=$'\n\t'
+
+now=$(cat /tmpfs/redshift/value)
+
+function more_yellow {
+   if [[ "$now" -le 1000 ]]; then
+      return
+   fi
+   now=$((now-100))
+   redshift -P -O "$now" > /dev/null
+   echo "$now" > /tmpfs/redshift/value
+}
+
+function more_blue {
+   if [[ "$now" -ge 6000 ]]; then
+      return
+   fi
+   now=$((now+100))
+   redshift -P -O "$now" > /dev/null
+   echo "$now" > /tmpfs/redshift/value
+}
+
+case "$BLOCK_BUTTON" in
+   1) more_yellow;;
+   3) more_blue;;
+esac
+
+case "$1" in
+   1) more_yellow;;
+   3) more_blue;;
+esac
+
+echo "     ${now}K     "
+echo " ${now}K "
