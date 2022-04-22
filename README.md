@@ -2,7 +2,7 @@
 
 ## Installation
 
-### Manual installation on my your own OS
+### Manual install on your own OS
 
 ```
 git clone https://github.com/frantisekstanko/dotfiles
