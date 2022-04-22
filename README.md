@@ -2,6 +2,15 @@
 
 ## Installation
 
+### Manual installation on my your own OS
+
+```
+git clone https://github.com/frantisekstanko/dotfiles
+./dotfiles/create_home_repo
+```
+
+### Clean install (recommended)
+
 1. Install **openSUSE Tumbleweed**:
   - offline image: https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
   - network image: https://download.opensuse.org/tumbleweed/iso/openSUSE-Tumbleweed-NET-x86_64-Current.iso
