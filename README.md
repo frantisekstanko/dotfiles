@@ -1,5 +1,7 @@
 # dotfiles
 
+![screenshot](https://raw.githubusercontent.com/frantisekstanko/dotfiles/main/images/screenshot1.png)
+
 ## Installation
 
 ### Manual install on your own OS
@@ -38,7 +40,3 @@ or
 ```
 $ startx
 ```
-
-## Desktop
-
-![screenshot](https://raw.githubusercontent.com/frantisekstanko/dotfiles/main/images/screenshot1.png)
