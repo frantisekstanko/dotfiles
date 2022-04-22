@@ -174,3 +174,4 @@ bindsym $mod+z exec --no-startup-id ~/.local/bin/redshift-switch 1 && exec pkill
 
 for_window [class="vlc"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="VirtualBox Machine"] floating enable
