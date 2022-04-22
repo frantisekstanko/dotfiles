@@ -16,4 +16,20 @@ $ bash <(curl -s https://raw.githubusercontent.com/frantisekstanko/dotfiles/main
 
 4. Follow on-screen instructions.
 
+## How to use
+
+This project uses [xinit](https://wiki.archlinux.org/title/Xinit) to boot into desktop. Therefore, you will see no login manager after boot. Simply type your login and password in the TTY and then just execute:
+
+```
+$ x
+```
+
+or
+
+```
+$ startx
+```
+
+## Desktop
+
 ![screenshot](/images/screenshot1.png)
