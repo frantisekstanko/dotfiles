@@ -271,7 +271,7 @@ if [[ "$SPOTIFY" = true ]]; then
 fi
 
 install=(bc xinit xorg-x11-server xprop ecryptfs-utils \
-tmux \
+tmux htop neofetch \
 i3-gaps i3blocks i3lock i3status perl-AnyEvent-I3 \
 brightnessctl \
 fontawesome-fonts google-opensans-fonts \
