@@ -29,6 +29,9 @@
 .java/
 .lesshst
 .lnav/
+./bin/lazygit
+./bin/lazydocker
+.local/bin/lazygit
 .local/bin/lazydocker
 .local/share/applications/mimeapps.list
 .local/share/applications/mimeinfo.cache
