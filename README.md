@@ -32,4 +32,4 @@ $ startx
 
 ## Desktop
 
-![screenshot](/images/screenshot1.png)
+![screenshot](https://raw.githubusercontent.com/frantisekstanko/dotfiles/main/images/screenshot1.png)
