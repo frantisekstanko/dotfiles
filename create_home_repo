@@ -4,6 +4,16 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+SCRIPT=$(realpath "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+REMOTEHOME="$SCRIPTPATH/home/"
+size=${#REMOTEHOME}
+
+if [[ ! -d "$REMOTEHOME" ]]; then
+   echo 'Error! Repository not correctly cloned!'
+   exit 1
+fi
+
 confirm_action(){
    echo
    while true; do
@@ -51,8 +61,8 @@ fi
 cd ~
 git init .
 
-for file in $(find '/tmpfs/dotfiles/home/' -mindepth 1); do
-   base="${file:21}"
+for file in $(find "$REMOTEHOME" -mindepth 1); do
+   base="${file:$size}"
    if [[ -e "$HOME/$base" ]]; then
       git add "$HOME/$base"
    fi
@@ -64,8 +74,8 @@ git config oh-my-zsh.hide-info 0
 
 git commit -m "Backup"
 
-for file in $(find '/tmpfs/dotfiles/home/' -mindepth 1); do
-   base="${file:21}"
+for file in $(find "$REMOTEHOME" -mindepth 1); do
+   base="${file:$size}"
    cp -r "$file" "$HOME/$base"
    git add "$HOME/$base"
 done
