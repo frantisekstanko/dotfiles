@@ -1,0 +1,392 @@
+#!/bin/bash
+
+### strict mode ###
+set -euo pipefail
+IFS=$'\n\t'
+
+confirm_action(){
+   echo
+   while true; do
+      if [[ "$#" -ge 2 ]]; then
+         if [[ "$2" == 'Y' || "$2" == 'y' ]]; then
+            question="$1 [Y/n]: "
+         elif [[ "$2" == 'N' || "$2" == 'n' ]]; then
+            question="$1 [y/N]: "
+         else
+            question="$1 [y/n]: "
+         fi
+      else
+         question="$1 [y/n]: "
+      fi
+      echo -en "$question"
+      read -r answer
+      if [[ "$#" -ge 2 && "$2" ]]; then
+         answer=${answer:-"$2"}
+      fi
+      if [[ $answer = "Y" || $answer = "y" ]]; then
+         return 0
+         break
+      elif [[ $answer = "n" ]]; then
+         return 1
+         break
+      else
+         echo "Invalid answer. Please, try again."
+      fi
+   done
+}
+
+### do not allow as root ###
+if [[ "$EUID" -eq 0 ]]; then
+   echo "Please, do NOT run me as root"
+   exit 1
+fi
+
+### stop asking for sudo password ###
+if confirm_action "Stop asking for sudo password forever?"; then
+   if ! sudo grep -q "$(whoami)" /etc/sudoers; then
+      echo "" | sudo tee -a /etc/sudoers > /dev/null
+      echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers > /dev/null
+   fi
+fi
+
+sudo zypper ref
+sudo zypper dup -y
+
+if ! sudo zypper --quiet needs-rebooting; then
+   if confirm_action "It is recommended to reboot your machine and run this installer again.\nReboot now?"; then
+      sudo reboot
+   fi
+fi
+
+echo -n 'Install from preset: [vbox|minimal|full|customize] '
+read -r preset
+echo
+
+if [[ "$preset" == 'minimal' ]]; then
+   MACBOOKWIFI=false
+   LIBREOFFICE=false
+   NVIDIA=false
+   SOLAAR=false
+   SPOTIFY=false
+   LOCALDEV=false
+   tmpfs_size='2G'
+   tmp_size='2G'
+   CHROME=false
+   TLP=false
+   KERNEL_DEVEL=false
+   DOCKER=false
+   SUBLIME_TEXT=false
+   SUBLIME_MERGE=false
+   SIGNAL=false
+elif [[ "$preset" == 'full' ]]; then
+   MACBOOKWIFI=true
+   LIBREOFFICE=true
+   NVIDIA=false
+   SOLAAR=true
+   SPOTIFY=true
+   LOCALDEV=true
+   tmpfs_size='30G'
+   tmp_size='8G'
+   CHROME=true
+   TLP=true
+   KERNEL_DEVEL=true
+   DOCKER=true
+   SUBLIME_TEXT=true
+   SUBLIME_MERGE=true
+   SIGNAL=true
+else
+   if [[ "$preset" != 'vbox' ]] && confirm_action "Install MacBook Air WiFi driver?" "n"; then
+      MACBOOKWIFI=true
+   else
+      MACBOOKWIFI=false
+   fi
+
+   if confirm_action "Install libreoffice?" "n"; then
+      LIBREOFFICE=true
+   else
+      LIBREOFFICE=false
+   fi
+
+   if [[ "$preset" != 'vbox' ]] && confirm_action "Install Nvidia driver?" "n"; then
+      NVIDIA=true
+   else
+      NVIDIA=false
+   fi
+
+   if [[ "$preset" != 'vbox' ]] && confirm_action "Install solaar (logitech wireless mouse)?" "n"; then
+      SOLAAR=true
+   else
+      SOLAAR=false
+   fi
+
+   if confirm_action "Install spotify?" "n"; then
+      SPOTIFY=true
+   else
+      SPOTIFY=false
+   fi
+
+   if [[ "$preset" != 'vbox' ]] && confirm_action "Deploy local development (apache2 + mariadb) ?" "n"; then
+      LOCALDEV=true
+   else
+      LOCALDEV=false
+   fi
+
+   if confirm_action "Install Google Chrome?" "n"; then
+      CHROME=true
+   else
+      CHROME=false
+   fi
+
+   if [[ "$preset" != 'vbox' ]] && confirm_action "Install and enable TLP?" "n"; then
+      TLP=true
+   else
+      TLP=false
+   fi
+
+   if [[ "$preset" == 'vbox' ]] || confirm_action "Install kernel-devel?" "n"; then
+      KERNEL_DEVEL=true
+   else
+      KERNEL_DEVEL=false
+   fi
+
+   if [[ "$preset" != 'vbox' ]] && confirm_action "Install docker?" "n"; then
+      DOCKER=true
+   else
+      DOCKER=false
+   fi
+
+   if confirm_action "Install Sublime Text?" "n"; then
+      SUBLIME_TEXT=true
+   else
+      SUBLIME_TEXT=false
+   fi
+
+   if confirm_action "Install Sublime Merge?" "n"; then
+      SUBLIME_MERGE=true
+   else
+      SUBLIME_MERGE=false
+   fi
+
+   if confirm_action "Install Signal (messenger)?" "n"; then
+      SIGNAL=true
+   else
+      SIGNAL=false
+   fi
+fi
+
+if [[ "$preset" == 'vbox' ]]; then
+   hostname='vbox'
+else
+   echo -n 'Set hostname to: '
+   read -r hostname
+   echo
+fi
+
+sudo hostnamectl hostname "$hostname"
+
+### initialize tmpfs ###
+if ! grep -q '^tmpfs /tmpfs/' /etc/fstab; then
+   if {
+      echo ''
+      echo "tmpfs /tmpfs/   tmpfs nodev,nosuid,size=2G 0 0"
+      echo "tmpfs /tmp/     tmpfs defaults,noatime,size=2G,mode=1777 0 0"
+      echo 'tmpfs /var/log/ tmpfs defaults,noatime,size=512M,mode=0755 0 0'
+   } | sudo tee -a /etc/fstab > /dev/null 2>&1; then
+      sudo mkdir /tmpfs/
+      sudo mount /tmpfs/
+   fi
+fi
+
+## auditd in tmpfs fix ###
+sudo mkdir -p /etc/systemd/system/auditd.service.d/
+{
+   echo '[Service]'
+   echo 'ExecStartPre=mkdir -p /var/log/audit/'
+} | sudo tee /etc/systemd/system/auditd.service.d/log_fix.conf > /dev/null
+sudo systemctl daemon-reload
+
+## disable handling power key ##
+if ! grep -q '^HandlePowerKey' /etc/systemd/logind.conf; then
+   {
+      echo
+      echo "HandlePowerKey=ignore"
+      echo
+   } | sudo tee -a /etc/systemd/logind.conf > /dev/null
+fi
+
+## add sublime repo, if doesn't exist yet
+if [[ "$SUBLIME_TEXT" == true || "$SUBLIME_MERGE" == true ]]; then
+   if ! sudo zypper lr -d | grep -q 'download.sublimetext.com'; then
+      sudo rpm -v --import \
+      https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+      sudo zypper addrepo -g \
+      https://download.sublimetext.com/rpm/stable/x86_64/ \
+      "sublimetext.com"
+   fi
+fi
+
+## add packman repo, if doesn't exist yet
+if ! sudo zypper lr -d | grep -q 'opensuse_packman'; then
+   sudo zypper ar -cfp 90 https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ \
+   "opensuse_packman"
+fi
+
+## add signal repo, if doesn't exist yet
+if [[ "$SIGNAL" == true ]]; then
+   if ! sudo zypper lr -d | grep -q 'obs_signal'; then
+      sudo zypper addrepo https://download.opensuse.org/repositories/network:/im:/signal/openSUSE_Tumbleweed/ \
+      "obs_signal"
+   fi
+fi
+
+## add nvidia repo
+if [[ "$NVIDIA" = true ]]; then
+   if ! sudo zypper lr -d | grep -q 'nvidia.com'; then
+      sudo zypper addrepo https://download.nvidia.com/opensuse/tumbleweed \
+      "nvidia.com"
+   fi
+fi
+
+## add chrome repo
+if [[ "$CHROME" = true ]]; then
+   if ! sudo zypper lr -d | grep -q 'google.com/chrome'; then
+      sudo rpm -v --import \
+      https://dl.google.com/linux/linux_signing_key.pub
+      sudo zypper addrepo -g \
+      http://dl.google.com/linux/chrome/rpm/stable/x86_64 \
+      "google.com/chrome"
+   fi
+fi
+
+## add spotify repo
+if [[ "$SPOTIFY" = true ]]; then
+   if ! sudo zypper lr -d | grep -q 'obs_spotify'; then
+      sudo zypper addrepo https://download.opensuse.org/repositories/home:/Dead_Mozay/openSUSE_Tumbleweed/ \
+      "obs_spotify"
+   fi
+fi
+
+install=(bc xinit xorg-x11-server xprop ecryptfs-utils \
+tmux \
+i3-gaps i3blocks i3lock i3status perl-AnyEvent-I3 \
+brightnessctl \
+fontawesome-fonts google-opensans-fonts \
+mc git NetworkManager-applet feh picom redshift kitty rofi MozillaFirefox \
+ncdu meld pv gparted mpv dex \
+pulseaudio jq xdotool libnotify-tools arandr \
+ShellCheck xev pavucontrol zsh fzf \
+sshfs neovim xfce4-screenshooter \
+ImageMagick jpegoptim keychain \
+nmap pinentry-gnome3 gnome-keyring \
+playerctl cool-retro-term)
+
+if [[ "$MACBOOKWIFI" == true ]]; then
+   install+=(broadcom-wl broadcom-wl-kmp-default)
+fi
+
+if [[ "$LIBREOFFICE" == true ]]; then
+   install+=(libreoffice-calc libreoffice-writer)
+fi
+
+if [[ "$NVIDIA" == true ]]; then
+   install+=(x11-video-nvidiaG06 nvidia-glG06 suse-prime)
+fi
+
+if [[ "$SOLAAR" == true ]]; then
+   install+=(solaar)
+fi
+
+if [[ "$LOCALDEV" == true ]]; then
+   install+=(apache2 php8 mariadb apache2-mod_php8 php8-mysql \
+      php8-calendar php8-mbstring php8-xdebug php8-gd)
+fi
+
+if [[ "$SPOTIFY" == true ]]; then
+   install+=(spotify-client)
+fi
+
+if [[ "$TLP" == true ]]; then
+   install+=(tlp)
+fi
+
+if [[ "$CHROME" == true ]]; then
+   install+=(google-chrome-stable)
+fi
+
+if [[ "$KERNEL_DEVEL" == true ]]; then
+   install+=(kernel-devel)
+fi
+
+if [[ "$DOCKER" == true ]]; then
+   install+=(docker docker-compose)
+fi
+
+if [[ "$SUBLIME_TEXT" == true ]]; then
+   install+=(sublime-text)
+fi
+
+if [[ "$SUBLIME_MERGE" == true ]]; then
+   install+=(sublime-merge)
+fi
+
+if [[ "$SIGNAL" == true ]]; then
+   install+=(signal-desktop)
+fi
+
+sudo systemctl enable  --now firewalld.service
+sudo systemctl disable --now cups.service
+
+sudo zypper --gpg-auto-import-keys refresh
+
+echo "${install[*]}" | xargs sudo zypper install --auto-agree-with-licenses
+
+if [[ "$TLP" = true ]]; then
+   sudo systemctl enable tlp
+fi
+
+if [[ "$NVIDIA" = true ]]; then
+   sudo chmod 777 /usr/bin/X
+   sudo prime-select boot nvidia
+   # sudo prime-select service check
+   # sudo prime-select get-current
+   # xrandr --listproviders
+fi
+
+if [[ ! -d ~/.oh-my-zsh ]]; then
+   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+# create home repo
+cd /tmpfs
+rm -rf /tmpfs/dotfiles
+git clone https://github.com/frantisekstanko/dotfiles.git
+chmod +x /tmpfs/dotfiles/create_home_repo
+/tmpfs/dotfiles/create_home_repo
+
+# install lazygit
+rm -rf /tmpfs/lazygit/
+mkdir -p /tmpfs/lazygit/
+cd /tmpfs/lazygit/ || exit
+wget -O /tmpfs/lazygit/lazygit.tar.gz \
+"https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz"
+tar xzf /tmpfs/lazygit/lazygit.tar.gz
+cp /tmpfs/lazygit/lazygit "/home/$(whoami)/bin/."
+rm -rf /tmpfs/lazygit/
+
+if [[ "$LOCALDEV" == true ]]; then
+   # configure apache2
+   sudo mkdir -p /etc/systemd/system/apache2.service.d/
+   {
+      echo '[Service]'
+      echo 'ExecStartPre=mkdir -p /var/log/apache2/'
+   } | sudo tee /etc/systemd/system/apache2.service.d/log_fix.conf > /dev/null
+fi
+
+if [[ "$DOCKER" == true ]]; then
+   sudo usermod -aG docker "$(whoami)"
+fi
+
+echo
+echo 'All done'
+echo 'You should probably reboot now'
+echo

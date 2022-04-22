@@ -1,0 +1,84 @@
+#!/bin/bash
+
+### strict mode ###
+set -euo pipefail
+IFS=$'\n\t'
+
+confirm_action(){
+   echo
+   while true; do
+      if [[ "$#" -ge 2 ]]; then
+         if [[ "$2" == 'Y' || "$2" == 'y' ]]; then
+            question="$1 [Y/n]: "
+         elif [[ "$2" == 'N' || "$2" == 'n' ]]; then
+            question="$1 [y/N]: "
+         else
+            question="$1 [y/n]: "
+         fi
+      else
+         question="$1 [y/n]: "
+      fi
+      echo -en "$question"
+      read -r answer
+      if [[ "$#" -ge 2 && "$2" ]]; then
+         answer=${answer:-"$2"}
+      fi
+      if [[ $answer = "Y" || $answer = "y" ]]; then
+         return 0
+         break
+      elif [[ $answer = "n" ]]; then
+         return 1
+         break
+      else
+         echo "Invalid answer. Please, try again."
+      fi
+   done
+}
+
+if [[ -d ~/.git ]]; then
+   echo 'Your home directory already contains a .git repository'
+   echo 'This installer uses .git at home dir for the initial backup'
+   echo 'which may later be used for uninstall.'
+   echo
+   echo 'If you want to continue, this repo must be removed'
+   if confirm_action "Remove repo at home dir? (Caution!!!!!)?" "n"; then
+      rm -rf ~/.git
+   else
+      exit 1
+   fi
+fi
+
+cd ~
+git init .
+
+for file in $(find '/tmpfs/dotfiles/home/' -mindepth 1); do
+   base="${file:21}"
+   if [[ -e "$HOME/$base" ]]; then
+      git add "$HOME/$base"
+   fi
+done
+
+git config user.email "user@email.com"
+git config user.name "Username"
+git config oh-my-zsh.hide-info 0
+
+git commit -m "Backup"
+
+for file in $(find '/tmpfs/dotfiles/home/' -mindepth 1); do
+   base="${file:21}"
+   cp -r "$file" "$HOME/$base"
+   git add "$HOME/$base"
+done
+
+git commit -m "Fresh install"
+
+## make zsh as default shell
+zshfile=$(which zsh)
+if [[ -n "$zshfile" ]]; then
+   sudo usermod -s "$zshfile" "$(whoami)"
+fi
+
+## download and install jetbrains fonts
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+
+rm -rf /tmpfs/dotfiles/
