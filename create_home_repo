@@ -70,7 +70,7 @@ done
 
 git config user.email "user@email.com"
 git config user.name "Username"
-git config oh-my-zsh.hide-info 0
+git config oh-my-zsh.hide-info 1
 
 git commit -m "Backup"
 
