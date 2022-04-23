@@ -7,7 +7,7 @@ IFS=$'\n\t'
 SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 REMOTEHOME="$SCRIPTPATH/home/"
-size=${#REMOTEHOME}
+path_length=${#REMOTEHOME}
 
 if [[ ! -d "$REMOTEHOME" ]]; then
    echo 'Error! Repository not correctly cloned!'
@@ -62,7 +62,7 @@ cd ~
 git init .
 
 for file in $(find "$REMOTEHOME" -mindepth 1); do
-   base="${file:$size}"
+   base="${file:$path_length}"
    if [[ -e "$HOME/$base" ]]; then
       git add "$HOME/$base"
    fi
@@ -75,7 +75,7 @@ git config oh-my-zsh.hide-info 1
 git commit -m "Backup"
 
 for file in $(find "$REMOTEHOME" -mindepth 1); do
-   base="${file:$size}"
+   base="${file:$path_length}"
    cp -r "$file" "$HOME/$base"
    git add "$HOME/$base"
 done
