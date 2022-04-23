@@ -91,4 +91,25 @@ fi
 ## download and install jetbrains fonts
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
+## download and install SF compact fonts
+sudo mkdir -p /tmpfs/
+sudo chmod 777 -R /tmpfs/
+cd /tmpfs/
+rm -rf /tmpfs/sf_compact
+mkdir -p /tmpfs/sf_compact
+wget -O /tmpfs/sf_compact/download.dmg "https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg"
+cd /tmpfs/sf_compact
+7z x "/tmpfs/sf_compact/download.dmg"
+7z x "/tmpfs/sf_compact/SFCompactFonts/SF Compact Fonts.pkg"
+7z x "/tmpfs/sf_compact/Payload~"
+mkdir -p ~/.local/share/fonts/fonts/San_Francisco
+cp /tmpfs/sf_compact/Library/Fonts/SF-Compact-Display-Medium.otf \
+~/.local/share/fonts/fonts/San_Francisco
+cp /tmpfs/sf_compact/Library/Fonts/SF-Compact-Rounded-Medium.otf \
+~/.local/share/fonts/fonts/San_Francisco
+cp /tmpfs/sf_compact/Library/Fonts/SF-Compact-Text-Medium.otf \
+~/.local/share/fonts/fonts/San_Francisco
+
+## cleanup
+rm -rf /tmpfs/sf_compact/
 rm -rf /tmpfs/dotfiles/

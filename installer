@@ -282,7 +282,7 @@ ShellCheck xev pavucontrol zsh fzf \
 sshfs neovim xfce4-screenshooter \
 ImageMagick jpegoptim keychain \
 nmap pinentry-gnome3 gnome-keyring \
-playerctl cool-retro-term)
+playerctl cool-retro-term 7z)
 
 if [[ "$MACBOOKWIFI" == true ]]; then
    install+=(broadcom-wl broadcom-wl-kmp-default)
