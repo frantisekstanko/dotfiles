@@ -5,11 +5,11 @@ font pango:SF Compact Rounded, FontAwesome 15px
 
 exec_always --no-startup-id feh --bg-fill --no-fehbg --randomize ~/.wallpapers/*.jpg
 
-set $ws1 "1:"
-set $ws2 "2:"
-set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
+set $ws1 "1:  "
+set $ws2 "2:  "
+set $ws3 "3:  "
+set $ws4 "4:  "
+set $ws5 "5:  "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -126,8 +126,8 @@ bar {
    tray_output primary
    tray_padding 8
    height 36
-   workspace_min_width 40
-   strip_workspace_numbers yes
+   workspace_min_width 60
+   strip_workspace_numbers no
 }
 
 # smart_gaps on
