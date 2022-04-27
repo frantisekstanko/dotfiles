@@ -391,6 +391,14 @@ if [[ "$DOCKER" == true ]]; then
 fi
 
 echo
-echo 'All done'
-echo 'You should probably reboot now'
+echo 'Installation complete'
 echo
+
+if ! sudo zypper --quiet needs-rebooting; then
+   if confirm_action "It is recommended to reboot your machine now.\nReboot now?"; then
+      sudo reboot
+   fi
+else
+   echo "Execute 'startx' to get to desktop"
+   echo
+fi
