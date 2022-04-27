@@ -33,6 +33,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 floating_modifier $mod
+bindsym $mod+backslash exec cool-retro-term
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+d   exec --no-startup-id rofi -show drun
