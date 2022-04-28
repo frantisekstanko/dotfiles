@@ -374,7 +374,8 @@ cd /tmpfs/lazygit/ || exit
 wget -O /tmpfs/lazygit/lazygit.tar.gz \
 "https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz"
 tar xzf /tmpfs/lazygit/lazygit.tar.gz
-cp /tmpfs/lazygit/lazygit "/home/$(whoami)/bin/."
+cp /tmpfs/lazygit/lazygit "/home/$(whoami)/.local/bin/."
+chmod +x "/home/$(whoami)/.local/bin/lazygit"
 rm -rf /tmpfs/lazygit/
 
 if [[ "$LOCALDEV" == true ]]; then
