@@ -53,6 +53,7 @@ if confirm_action "Stop asking for sudo password forever?"; then
    fi
 fi
 
+### refuse to do anything on an old snapshot
 sudo zypper ref
 sudo zypper dup -y
 
