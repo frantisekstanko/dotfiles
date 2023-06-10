@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80,120"
 vim.opt.expandtab = true
