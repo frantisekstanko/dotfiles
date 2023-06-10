@@ -11,3 +11,4 @@ vim.opt.hlsearch = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/data/.vim/undodir"
+vim.opt.termguicolors = true
