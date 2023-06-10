@@ -12,3 +12,5 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/data/.vim/undodir"
 vim.opt.termguicolors = true
+
+vim.g.loaded_node_provider = 0
