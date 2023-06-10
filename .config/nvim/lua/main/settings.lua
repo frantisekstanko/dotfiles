@@ -9,3 +9,5 @@ vim.opt.number = true
 vim.opt.scrolloff = 12
 vim.opt.hlsearch = false
 vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/data/.vim/undodir"
