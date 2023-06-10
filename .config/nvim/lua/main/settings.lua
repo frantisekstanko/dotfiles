@@ -8,3 +8,4 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.scrolloff = 12
 vim.opt.hlsearch = false
+vim.opt.swapfile = false
