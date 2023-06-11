@@ -29,3 +29,18 @@ start properly.
 | grn | Increment selection by node | treesitter |
 | grc | Increment selection by scope | treesitter |
 | grm | Decrement selection by node | treesitter |
+
+#### Giving credits
+
+If anything in my configuration was taken from another repository,
+I will credit the original author in my own commit message for that
+chunk of code.
+
+My commit messages generally serve as comments for files, since
+comments inside files should be avoided.<sup>[1][2]</sup>
+
+###### Footnotes
+*[1]: Robert C. Martin - Clean Code: A Handbook of Agile Software Craftsmanship.
+     Prentice Hall. ISBN 978-0132350884.*  
+*[2]: Robert C. Martin - Clean Architecture: A Craftsman's Guide to Software Structure and Design.
+     Prentice Hall. ISBN 978-0134494166.*
