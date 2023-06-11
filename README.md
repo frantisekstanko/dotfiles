@@ -8,8 +8,11 @@ My dotfiles.
 
 ### nvim
 
+All plugins load correctly on a clean install.
+
 - [lazy.vim](https://github.com/folke/lazy.nvim) as plugin manager
 - [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [telescope](https://github.com/nvim-telescope/telescope.nvim)
 
 #### Custom keymaps
 
