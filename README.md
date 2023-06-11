@@ -32,6 +32,11 @@ start properly.
 | grn | Increment selection by node | treesitter |
 | grc | Increment selection by scope | treesitter |
 | grm | Decrement selection by node | treesitter |
+| [c | Go to context (upwards) | treesitter-context |
+| \<C-p\> | Search in git files | telescope |
+| \<leader\>p | Search in all files in cwd | telescope |
+| \<C-f\> | Grep in all files in cwd | telescope |
+| \<leader\>h | Search in help tags | telescope |
 
 #### Giving credits
 
