@@ -3,6 +3,7 @@ vim.g.maplocalleader = " "
 
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80,120"
+vim.opt.wrap = false
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
