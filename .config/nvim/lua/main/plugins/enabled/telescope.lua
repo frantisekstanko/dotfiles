@@ -39,4 +39,13 @@ return {
 
         telescope.load_extension("fzf")
     end,
+    keys = {
+        {
+            "<C-p>",
+            function()
+                require("telescope.builtin").git_files()
+            end,
+            desc = "Search in git files",
+        },
+    },
 }
