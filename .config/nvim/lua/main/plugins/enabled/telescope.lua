@@ -59,6 +59,10 @@ return {
             function()
                 local search = vim.fn.input("grep string: ")
 
+                if search == "" then
+                    return
+                end
+
                 require("telescope.builtin").grep_string({
                     search = search,
                     additional_args = function()
