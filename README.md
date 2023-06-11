@@ -11,6 +11,19 @@ My dotfiles.
 
 #### Custom keymaps
 
-| Keymap | Description |
-|-|-|
-| \<leader\>fp | copy current buffer's file path to clipboard |
+Column **Plugin* specifies which plugin is used to achieve the keymap action.
+
+*(none)* means that the keymap is implemented natively, without relying
+on a plugin.
+
+Keymaps that rely on a certain plugin are defined in the plugin's config file,
+meaning that disabling/deleting plugins is safe and easy. nvim will always
+start properly.
+
+| Keymap | Action | Plugin |
+|-|-|-|
+| \<leader\>fp | copy current buffer's file path to clipboard | *(none)* |
+| gnn | Initialize incremental selection | treesitter |
+| grn | Increment selection by node | treesitter |
+| grc | Increment selection by scope | treesitter |
+| grm | Decrement selection by node | treesitter |
