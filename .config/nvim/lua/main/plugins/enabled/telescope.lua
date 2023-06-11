@@ -54,5 +54,19 @@ return {
             end,
             desc = "Search in all files in cwd",
         },
+        {
+            "<C-f>",
+            function()
+                local search = vim.fn.input("grep string: ")
+
+                require("telescope.builtin").grep_string({
+                    search = search,
+                    additional_args = function()
+                        return { "--hidden" }
+                    end,
+                })
+            end,
+            desc = "Grep in all files in cwd",
+        },
     },
 }
