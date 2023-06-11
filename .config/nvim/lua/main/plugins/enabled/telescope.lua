@@ -78,7 +78,7 @@ return {
                 local builtin = require("telescope.builtin")
                 builtin.help_tags()
             end,
-            desc = "Search in help",
+            desc = "Search in help tags",
         },
     },
 }
