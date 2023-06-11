@@ -47,5 +47,12 @@ return {
             end,
             desc = "Search in git files",
         },
+        {
+            "<leader>p",
+            function()
+                require("telescope.builtin").find_files()
+            end,
+            desc = "Search in all files in cwd",
+        },
     },
 }
