@@ -14,6 +14,13 @@ return {
 
         telescope.setup({
             defaults = {
+                layout_strategy = "vertical",
+                layout_config = {
+                    vertical = {
+                        width = 0.98,
+                        height = 0.98,
+                    },
+                },
                 mappings = {
                     i = {
                         ["<Esc>"] = actions.close,
