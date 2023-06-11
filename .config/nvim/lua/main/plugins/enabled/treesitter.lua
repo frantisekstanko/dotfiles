@@ -29,6 +29,9 @@ return {
                     node_decremental = "grm",
                 },
             },
+            indent = {
+                enable = true,
+            },
         })
     end,
 }
