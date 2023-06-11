@@ -2,6 +2,8 @@
 
 My dotfiles.
 
+⭐ Issues and pull requests are welcome. ⭐
+
 ## Features
 
 ### nvim
