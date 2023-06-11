@@ -72,5 +72,13 @@ return {
             end,
             desc = "Grep in all files in cwd",
         },
+        {
+            "<leader>h",
+            function()
+                local builtin = require("telescope.builtin")
+                builtin.help_tags()
+            end,
+            desc = "Search in help",
+        },
     },
 }
