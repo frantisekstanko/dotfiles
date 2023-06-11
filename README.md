@@ -6,7 +6,8 @@ My dotfiles.
 
 ### nvim
 
-- plugin manager: [lazy.vim](https://github.com/folke/lazy.nvim)
+- [lazy.vim](https://github.com/folke/lazy.nvim) as plugin manager
+- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
 #### Custom keymaps
 
