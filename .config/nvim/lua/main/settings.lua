@@ -15,7 +15,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.hlsearch = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/data/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/data/.nvim/undodir/"
 vim.opt.termguicolors = true
 
 vim.g.loaded_node_provider = 0
