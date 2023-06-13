@@ -37,6 +37,7 @@ start properly.
 | \<leader\>p | Search in all files in cwd | telescope |
 | \<C-f\> | Grep in all files in cwd | telescope |
 | \<leader\>h | Search in help tags | telescope |
+| \<leader\>u | Open undotree | undotree |
 
 #### Giving credits
 
