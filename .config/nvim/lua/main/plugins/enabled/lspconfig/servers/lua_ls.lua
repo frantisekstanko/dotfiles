@@ -8,6 +8,9 @@ lspconfig["lua_ls"].setup({
             diagnostics = {
                 globals = { "vim" },
             },
+            telemetry = {
+                enable = false,
+            },
         },
     },
 })
