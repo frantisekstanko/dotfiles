@@ -38,6 +38,7 @@ start properly.
 | \<C-f\> | Grep in all files in cwd | telescope |
 | \<leader\>h | Search in help tags | telescope |
 | \<leader\>u | Open undotree | undotree |
+| \<leader\>k | Search in keymaps | telescope |
 
 #### Giving credits
 

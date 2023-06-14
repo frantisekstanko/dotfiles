@@ -80,5 +80,12 @@ return {
             end,
             desc = "Search in help tags",
         },
+        {
+            "<leader>k",
+            function()
+                require("telescope.builtin").keymaps()
+            end,
+            desc = "Search in keymaps",
+        },
     },
 }
