@@ -27,7 +27,7 @@ start properly.
 
 | Keymap | Action | Plugin |
 |-|-|-|
-| \<leader\>fp | copy current buffer's file path to clipboard | *(none)* |
+| \<leader\>p | copy current buffer's file path to clipboard | *(none)* |
 | gnn | Initialize incremental selection | treesitter |
 | grn | Increment selection by node | treesitter |
 | grc | Increment selection by scope | treesitter |

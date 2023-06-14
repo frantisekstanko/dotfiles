@@ -1,3 +1,3 @@
 local map = vim.keymap.set
 
-map("n", "<leader>fp", "<cmd>let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
+map("n", "<leader>p", "<cmd>let @+ = fnamemodify(expand('%'), ':~:.')<CR>")
