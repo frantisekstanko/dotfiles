@@ -39,6 +39,7 @@ start properly.
 | \<leader\>h | Search in help tags | telescope |
 | \<leader\>u | Open undotree | undotree |
 | \<leader\>k | Search in keymaps | telescope |
+| \<leader\>t | File manager | nnn |
 
 #### Giving credits
 
