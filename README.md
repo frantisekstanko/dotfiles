@@ -45,6 +45,9 @@ start properly.
 | \<A-.\> | Next buffer | barbar |
 | \<A-/\> | Close buffer | barbar |
 | \<A-?\> | Restore buffer | barbar |
+| \<leader\>ce | Enable copilot | copilot.lua |
+| \<leader\>cd | Disable copilot | copilot.lua |
+| \<leader\>cs | Copilot status | copilot.lua |
 
 #### Giving credits
 
