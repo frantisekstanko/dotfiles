@@ -7,4 +7,9 @@ return {
             desc = "File manager",
         },
     },
+    opts = {
+        picker = {
+            cmd = "nnn -A",
+        },
+    },
 }
