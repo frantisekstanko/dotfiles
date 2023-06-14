@@ -41,6 +41,10 @@ start properly.
 | \<leader\>k | Search in keymaps | telescope |
 | \<leader\>t | File manager | nnn |
 | \<leader\>x | Cellular automaton | cellular-automaton |
+| \<A-,\> | Previous buffer | barbar |
+| \<A-.\> | Next buffer | barbar |
+| \<A-/\> | Close buffer | barbar |
+| \<A-?\> | Restore buffer | barbar |
 
 #### Giving credits
 
