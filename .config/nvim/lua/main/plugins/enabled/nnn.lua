@@ -10,6 +10,9 @@ return {
     opts = {
         picker = {
             cmd = "nnn -A",
+            style = {
+                width = 0.6,
+            },
         },
     },
 }
