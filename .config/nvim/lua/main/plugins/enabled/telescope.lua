@@ -14,7 +14,7 @@ return {
 
         telescope.setup({
             defaults = {
-                layout_strategy = "vertical",
+                layout_strategy = "horizontal",
                 layout_config = {
                     vertical = {
                         width = 0.98,
