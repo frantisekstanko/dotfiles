@@ -50,6 +50,12 @@ return {
             vim.cmd("Copilot status")
         end
 
+        local cur_dir = vim.fn.expand("%:p:h")
+
+        if io.open(cur_dir .. "/.copilot", "r") == nil then
+            return false
+        end
+
         CopilotEnable()
     end,
 }
