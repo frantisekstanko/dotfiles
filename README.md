@@ -40,6 +40,7 @@ start properly.
 | \<leader\>u | Open undotree | undotree |
 | \<leader\>k | Search in keymaps | telescope |
 | \<leader\>t | File manager | nnn |
+| \<leader\>x | Cellular automaton | cellular-automaton |
 
 #### Giving credits
 
