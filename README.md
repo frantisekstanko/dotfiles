@@ -52,6 +52,7 @@ start properly.
 | gN | Previous modified chunk | gitsigns |
 | \<leader\>z | Toggle zen mode | zen-mode |
 | \<leader\>U | Update (currently runs Lazy sync) | lazy.nvim |
+| \<leader\>T | Search in @TODO | todo-comments.nvim |
 
 #### Giving credits
 
