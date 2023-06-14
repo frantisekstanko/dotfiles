@@ -51,6 +51,7 @@ start properly.
 | gn | Next modified chunk | gitsigns |
 | gN | Previous modified chunk | gitsigns |
 | \<leader\>z | Toggle zen mode | zen-mode |
+| \<leader\>U | Update (currently runs Lazy sync) | lazy.nvim |
 
 #### Giving credits
 
