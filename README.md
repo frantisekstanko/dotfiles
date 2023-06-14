@@ -48,6 +48,8 @@ start properly.
 | \<leader\>ce | Enable copilot | copilot.lua |
 | \<leader\>cd | Disable copilot | copilot.lua |
 | \<leader\>cs | Copilot status | copilot.lua |
+| gn | Next modified chunk | gitsigns |
+| gN | Previous modified chunk | gitsigns |
 
 #### Giving credits
 
