@@ -14,6 +14,7 @@ return {
                     "bashls",
                     "lua_ls",
                     "rust_analyzer",
+                    "intelephense",
                 },
             })
         end,
