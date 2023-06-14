@@ -50,6 +50,7 @@ start properly.
 | \<leader\>cs | Copilot status | copilot.lua |
 | gn | Next modified chunk | gitsigns |
 | gN | Previous modified chunk | gitsigns |
+| \<leader\>z | Toggle zen mode | zen-mode |
 
 #### Giving credits
 
