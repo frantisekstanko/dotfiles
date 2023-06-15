@@ -53,6 +53,7 @@ start properly.
 | \<leader\>z | Toggle zen mode | zen-mode |
 | \<leader\>U | Update (currently runs Lazy sync) | lazy.nvim |
 | \<leader\>T | Search in @TODO | todo-comments.nvim |
+| \<leader\>m | Search in modified on current branch | telescope |
 
 #### Giving credits
 
