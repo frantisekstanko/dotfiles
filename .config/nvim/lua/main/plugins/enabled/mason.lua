@@ -16,6 +16,7 @@ return {
                     "rust_analyzer",
                     "intelephense",
                     "quick_lint_js",
+                    "pylsp",
                 },
             })
         end,
