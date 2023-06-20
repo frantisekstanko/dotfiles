@@ -15,6 +15,7 @@ return {
                     "lua_ls",
                     "rust_analyzer",
                     "intelephense",
+                    "quick_lint_js",
                 },
             })
         end,
