@@ -57,6 +57,7 @@ start properly.
 | \<C-k\> | During autocompletion: previous item | nvim-cmp |
 | \<C-j\> | During autocompletion: next item | nvim-cmp |
 | \<CR\> | During autocompletion: confirm selection | nvim-cmp |
+| \<leader\>o | Open last session | persistence.nvim |
 
 #### Giving credits
 
