@@ -1,4 +1,11 @@
 return {
     "folke/which-key.nvim",
-    opts = {},
+    opts = {
+        triggers = "",
+    },
+    config = function()
+        local wk = require("which-key")
+
+        wk.register(require("main.keymaps.normal_mode"))
+    end,
 }
