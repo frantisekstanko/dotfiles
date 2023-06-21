@@ -57,6 +57,8 @@ start properly.
 | \<C-j\> | During autocompletion: next item | nvim-cmp |
 | \<CR\> | During autocompletion: confirm selection | nvim-cmp |
 | \<leader\>o | Open last session | persistence.nvim |
+| \<leader\>y | yank to system clipboard | *(none)* |
+| \<leader\>Y | YANK to system clipboard | *(none)* |
 
 #### Giving credits
 
