@@ -79,9 +79,9 @@ return {
         {
             "<leader>k",
             function()
-                require("telescope.builtin").keymaps()
+                vim.cmd("WhichKey")
             end,
-            desc = "Search in keymaps",
+            desc = "Show keymaps",
         },
         {
             "<leader>m",
