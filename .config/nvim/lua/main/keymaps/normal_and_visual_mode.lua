@@ -7,4 +7,8 @@ return {
         [["+Y]],
         "YANK to system clipboard",
     },
+    ["<leader>d"] = {
+        [["_d]],
+        "Delete without replacing the unnamed register",
+    },
 }

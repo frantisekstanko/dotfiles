@@ -59,6 +59,7 @@ start properly.
 | \<leader\>o | Open last session | persistence.nvim |
 | \<leader\>y | yank to system clipboard | *(none)* |
 | \<leader\>Y | YANK to system clipboard | *(none)* |
+| \<leader\>d | Delete without replacing the unnamed register | *(none)* |
 
 #### Giving credits
 
