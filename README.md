@@ -34,7 +34,6 @@ start properly.
 | grm | Decrement selection by node | treesitter |
 | [c | Go to context (upwards) | treesitter-context |
 | \<C-p\> | Search in git files | telescope |
-| \<leader\>p | Search in all files in cwd | telescope |
 | \<C-f\> | Grep in all files in cwd | telescope |
 | \<leader\>h | Search in help tags | telescope |
 | \<leader\>u | Open undotree | undotree |

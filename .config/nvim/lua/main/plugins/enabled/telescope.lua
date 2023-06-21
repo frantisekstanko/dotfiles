@@ -44,16 +44,11 @@ return {
         {
             "<C-p>",
             function()
-                require("telescope.builtin").git_files()
+                require("telescope.builtin").git_files({
+                    show_untracked = true,
+                })
             end,
             desc = "Search in git files",
-        },
-        {
-            "<leader>p",
-            function()
-                require("telescope.builtin").find_files()
-            end,
-            desc = "Search in all files in cwd",
         },
         {
             "<C-f>",
