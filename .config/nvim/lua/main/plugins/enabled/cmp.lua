@@ -10,7 +10,7 @@ return {
             mapping = {
                 ["<C-k>"] = cmp.mapping.select_prev_item(),
                 ["<C-j>"] = cmp.mapping.select_next_item(),
-                ["<CR>"] = cmp.mapping.confirm(),
+                ["<CR>"] = cmp.mapping.confirm({ select = false }),
             },
             sources = {
                 { name = "nvim_lsp" },
