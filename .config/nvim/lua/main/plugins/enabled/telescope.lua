@@ -10,7 +10,6 @@ return {
     },
     config = function()
         local telescope = require("telescope")
-        local actions = require("telescope.actions")
 
         telescope.setup({
             defaults = {
@@ -20,11 +19,6 @@ return {
                     vertical = {
                         width = 0.98,
                         height = 0.98,
-                    },
-                },
-                mappings = {
-                    i = {
-                        ["<Esc>"] = actions.close,
                     },
                 },
             },
