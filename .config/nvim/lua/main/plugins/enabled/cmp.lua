@@ -8,8 +8,8 @@ return {
 
         cmp.setup({
             mapping = {
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
-                ["<C-j>"] = cmp.mapping.select_next_item(),
+                ["<C-u>"] = cmp.mapping.select_prev_item(),
+                ["<C-d>"] = cmp.mapping.select_next_item(),
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
             },
             sources = {
