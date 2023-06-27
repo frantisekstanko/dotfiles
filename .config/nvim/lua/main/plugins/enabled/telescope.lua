@@ -93,6 +93,7 @@ return {
 
                 pickers
                     .new({
+                        initial_mode = "normal",
                         results_title = "Modified on current branch",
                         prompt_title = false,
                         finder = finders.new_oneshot_job({
