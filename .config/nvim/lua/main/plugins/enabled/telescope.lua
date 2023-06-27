@@ -19,6 +19,7 @@ return {
                     horizontal = {
                         width = 0.98,
                         height = 0.98,
+                        prompt_position = "top",
                     },
                 },
             },
