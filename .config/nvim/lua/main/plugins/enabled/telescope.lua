@@ -94,6 +94,7 @@ return {
                 pickers
                     .new({
                         results_title = "Modified on current branch",
+                        prompt_title = false,
                         finder = finders.new_oneshot_job({
                             "git",
                             "diff",
