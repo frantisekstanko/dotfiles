@@ -14,6 +14,16 @@ return {
         telescope.setup({
             defaults = {
                 scroll_strategy = "limit",
+                borderchars = {
+                    "━",
+                    "┃",
+                    "━",
+                    "┃",
+                    "┏",
+                    "┓",
+                    "┛",
+                    "┗",
+                },
                 sorting_strategy = "ascending",
                 layout_strategy = "horizontal",
                 layout_config = {
