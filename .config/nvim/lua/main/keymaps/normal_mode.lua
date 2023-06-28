@@ -36,4 +36,13 @@ return {
         end,
         "Restart LSP",
     },
+    ["<leader>C"] = {
+        function()
+            require("telescope.builtin").find_files({
+                initial_mode = "normal",
+                cwd = "$HOME/.config/nvim",
+            })
+        end,
+        "Show nvim config files",
+    },
 }

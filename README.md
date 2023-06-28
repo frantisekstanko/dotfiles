@@ -65,6 +65,7 @@ start properly.
 | \<leader\>r | Rename all references using Language Server Protocol | nvim-lspconfig |
 | \<leader\>ca | Code actions of Language Server Protocol | nvim-lspconfig |
 | \<leader\>lr | Restart Language Server Protocol | nvim-lspconfig |
+| \<leader\>C | Show nvim config files | telescope |
 
 #### Giving credits
 
