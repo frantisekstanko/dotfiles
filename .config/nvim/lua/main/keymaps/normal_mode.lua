@@ -9,4 +9,10 @@ return {
         end,
         "Sync plugins",
     },
+    ["<leader>f"] = {
+        function()
+            vim.lsp.buf.format()
+        end,
+        "Format file using LSP",
+    },
 }

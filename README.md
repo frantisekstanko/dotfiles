@@ -61,6 +61,7 @@ start properly.
 | \<leader\>Y | YANK to system clipboard | *(none)* |
 | \<leader\>d | Delete without replacing the unnamed register | *(none)* |
 | \<leader\>P | Paste from system clipboard | *(none)* |
+| \<leader\>f | Format file using Language Server Protocol | nvim-lspconfig |
 
 #### Giving credits
 
