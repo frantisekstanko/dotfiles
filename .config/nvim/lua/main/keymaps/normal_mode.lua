@@ -61,6 +61,7 @@ return {
         function()
             require("telescope.builtin").lsp_implementations({
                 initial_mode = "normal",
+                show_line = false,
             })
         end,
         "Go to implementation",
