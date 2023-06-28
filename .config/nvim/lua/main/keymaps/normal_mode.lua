@@ -27,4 +27,13 @@ return {
         end,
         "Code actions of LSP",
     },
+    ["<leader>lr"] = {
+        function()
+            vim.cmd("LspRestart")
+            vim.cmd("sleep 100m")
+            vim.cmd("e")
+            require("notify")(" Lsp restarted", vim.log.levels.OK)
+        end,
+        "Restart LSP",
+    },
 }
