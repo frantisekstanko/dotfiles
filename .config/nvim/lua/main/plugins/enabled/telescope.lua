@@ -101,7 +101,7 @@ return {
                             "diff",
                             "--name-only",
                             "--relative",
-                            "main",
+                            "main...HEAD",
                         }),
                         sorter = sorters.get_fuzzy_file(),
                         previewer = previewers.new_termopen_previewer({
