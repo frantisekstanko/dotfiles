@@ -21,4 +21,10 @@ return {
         end,
         "Rename all references using LSP",
     },
+    ["<leader>ca"] = {
+        function()
+            vim.lsp.buf.code_action()
+        end,
+        "Code actions of LSP",
+    },
 }
