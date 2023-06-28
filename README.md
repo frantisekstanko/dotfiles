@@ -62,6 +62,7 @@ start properly.
 | \<leader\>d | Delete without replacing the unnamed register | *(none)* |
 | \<leader\>P | Paste from system clipboard | *(none)* |
 | \<leader\>f | Format file using Language Server Protocol | nvim-lspconfig |
+| \<leader\>r | Rename all references using Language Server Protocol | nvim-lspconfig |
 
 #### Giving credits
 

@@ -15,4 +15,10 @@ return {
         end,
         "Format file using LSP",
     },
+    ["<leader>r"] = {
+        function()
+            vim.lsp.buf.rename()
+        end,
+        "Rename all references using LSP",
+    },
 }
