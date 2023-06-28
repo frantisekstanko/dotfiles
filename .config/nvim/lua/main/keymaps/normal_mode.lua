@@ -76,6 +76,7 @@ return {
         function()
             require("telescope.builtin").lsp_references({
                 initial_mode = "normal",
+                include_declaration = false,
             })
         end,
         "Go to references",
