@@ -57,4 +57,12 @@ return {
         end,
         "Go to next diagnostic",
     },
+    ["gi"] = {
+        function()
+            require("telescope.builtin").lsp_implementations({
+                initial_mode = "normal",
+            })
+        end,
+        "Go to implementation",
+    },
 }

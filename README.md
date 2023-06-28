@@ -68,6 +68,7 @@ start properly.
 | \<leader\>C | Show nvim config files | telescope |
 | [d | Go to previous diagnostic | *(any diagnostics source)* |
 | ]d | Go to next diagnostic | *(any diagnostics source)* |
+| gi | Go to implementation | nvim-lspconfig |
 
 #### Giving credits
 
