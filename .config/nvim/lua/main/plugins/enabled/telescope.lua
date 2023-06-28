@@ -66,6 +66,7 @@ return {
                 end
 
                 require("telescope.builtin").grep_string({
+                    initial_mode = "normal",
                     search = search,
                     additional_args = function()
                         return { "--hidden" }
