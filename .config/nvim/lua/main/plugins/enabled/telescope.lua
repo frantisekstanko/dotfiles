@@ -84,13 +84,6 @@ return {
             desc = "Search in help tags",
         },
         {
-            "<leader>k",
-            function()
-                vim.cmd("WhichKey")
-            end,
-            desc = "Show keymaps",
-        },
-        {
             "<leader>m",
             function()
                 local pickers = require("telescope.pickers")
