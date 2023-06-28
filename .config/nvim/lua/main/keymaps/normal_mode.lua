@@ -72,4 +72,12 @@ return {
         end,
         "Go to definition",
     },
+    ["gr"] = {
+        function()
+            require("telescope.builtin").lsp_references({
+                initial_mode = "normal",
+            })
+        end,
+        "Go to references",
+    },
 }
