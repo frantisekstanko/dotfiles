@@ -3,6 +3,7 @@ return {
     branch = "0.1.x",
     dependencies = {
         { "nvim-lua/plenary.nvim" },
+        { "frantisekstanko/telescope-git-diff" },
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
@@ -45,6 +46,7 @@ return {
         })
 
         telescope.load_extension("fzf")
+        telescope.load_extension("git_diff")
     end,
     keys = {
         {
@@ -86,37 +88,8 @@ return {
         {
             "<leader>m",
             function()
-                local pickers = require("telescope.pickers")
-                local finders = require("telescope.finders")
-                local sorters = require("telescope.sorters")
-                local previewers = require("telescope.previewers")
-
-                pickers
-                    .new({
-                        initial_mode = "normal",
-                        results_title = "Modified on current branch",
-                        prompt_title = false,
-                        finder = finders.new_oneshot_job({
-                            "git",
-                            "diff",
-                            "--name-only",
-                            "--relative",
-                            "main...HEAD",
-                        }),
-                        sorter = sorters.get_fuzzy_file(),
-                        previewer = previewers.new_termopen_previewer({
-                            get_command = function(entry)
-                                return {
-                                    "git",
-                                    "diff",
-                                    "--relative",
-                                    "main",
-                                    entry.value,
-                                }
-                            end,
-                        }),
-                    })
-                    :find()
+                local git_diff = require("telescope").extensions.git_diff
+                git_diff.modified_on_current_branch()
             end,
             desc = "Search in modified on current branch",
         },
