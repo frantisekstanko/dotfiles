@@ -71,6 +71,7 @@ start properly.
 | gi | Go to implementation | nvim-lspconfig |
 | gd | Go to definition | nvim-lspconfig |
 | gr | Go to references | nvim-lspconfig |
+| K | Show hover info for word under cursor | nvim-lspconfig |
 
 #### Giving credits
 

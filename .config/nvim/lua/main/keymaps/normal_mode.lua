@@ -82,4 +82,10 @@ return {
         end,
         "Go to references",
     },
+    ["K"] = {
+        function()
+            vim.lsp.buf.hover()
+        end,
+        "Show hover info from LSP",
+    },
 }
