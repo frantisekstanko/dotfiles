@@ -66,6 +66,8 @@ start properly.
 | \<leader\>ca | Code actions of Language Server Protocol | nvim-lspconfig |
 | \<leader\>lr | Restart Language Server Protocol | nvim-lspconfig |
 | \<leader\>C | Show nvim config files | telescope |
+| [d | Go to previous diagnostic | *(any diagnostics source)* |
+| ]d | Go to next diagnostic | *(any diagnostics source)* |
 
 #### Giving credits
 

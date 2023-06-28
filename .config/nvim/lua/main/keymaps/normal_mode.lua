@@ -45,4 +45,16 @@ return {
         end,
         "Show nvim config files",
     },
+    ["[d"] = {
+        function()
+            vim.diagnostic.goto_prev()
+        end,
+        "Go to previous diagnostic",
+    },
+    ["]d"] = {
+        function()
+            vim.diagnostic.goto_next()
+        end,
+        "Go to next diagnostic",
+    },
 }
