@@ -66,4 +66,10 @@ return {
         end,
         "Go to implementation",
     },
+    ["gd"] = {
+        function()
+            require("telescope.builtin").lsp_definitions()
+        end,
+        "Go to definition",
+    },
 }

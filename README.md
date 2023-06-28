@@ -69,6 +69,7 @@ start properly.
 | [d | Go to previous diagnostic | *(any diagnostics source)* |
 | ]d | Go to next diagnostic | *(any diagnostics source)* |
 | gi | Go to implementation | nvim-lspconfig |
+| gd | Go to definition | nvim-lspconfig |
 
 #### Giving credits
 
