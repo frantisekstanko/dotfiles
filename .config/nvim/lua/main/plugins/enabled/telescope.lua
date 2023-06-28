@@ -86,6 +86,14 @@ return {
             desc = "Search in help tags",
         },
         {
+            "<leader>cc",
+            function()
+                local builtin = require("telescope.builtin")
+                builtin.git_bcommits()
+            end,
+            desc = "Show commits for current buffer",
+        },
+        {
             "<leader>m",
             function()
                 local git_diff = require("telescope").extensions.git_diff
