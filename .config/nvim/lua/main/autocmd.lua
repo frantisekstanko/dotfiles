@@ -4,7 +4,18 @@ autocmd("User", {
     pattern = "LazyVimStarted",
     callback = function()
         local stats = require("lazy").stats()
-        print("Loaded in " .. math.floor(stats.startuptime + 0.5) .. " ms")
+        local version = vim.version()
+        print(
+            "nvim "
+                .. version.major
+                .. "."
+                .. version.minor
+                .. "."
+                .. version.patch
+                .. " | loaded in "
+                .. math.floor(stats.startuptime + 0.5)
+                .. " ms"
+        )
     end,
 })
 
