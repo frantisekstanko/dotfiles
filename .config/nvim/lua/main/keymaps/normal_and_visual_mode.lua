@@ -11,4 +11,8 @@ return {
         [["_d]],
         "Delete without replacing the unnamed register",
     },
+    ["<leader>P"] = {
+        [["+p]],
+        "Paste from system clipboard",
+    },
 }

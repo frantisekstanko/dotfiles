@@ -60,6 +60,7 @@ start properly.
 | \<leader\>y | yank to system clipboard | *(none)* |
 | \<leader\>Y | YANK to system clipboard | *(none)* |
 | \<leader\>d | Delete without replacing the unnamed register | *(none)* |
+| \<leader\>P | Paste from system clipboard | *(none)* |
 
 #### Giving credits
 
