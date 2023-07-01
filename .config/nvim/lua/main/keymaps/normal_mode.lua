@@ -1,6 +1,8 @@
 return {
     ["<leader>p"] = {
-        "<cmd>let @+ = fnamemodify(expand('%'), ':~:.')<CR>",
+        function()
+            vim.cmd("let @+ = fnamemodify(expand('%'), ':~:.')")
+        end,
         "Copy file path to clipboard",
     },
     ["<leader>U"] = {
