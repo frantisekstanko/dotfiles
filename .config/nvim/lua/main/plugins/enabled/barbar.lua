@@ -36,7 +36,7 @@ return {
             focus_on_close = "right",
             insert_at_end = true,
             maximum_padding = 1,
-            maximum_length = 40,
+            maximum_length = 32,
         })
     end,
 }
