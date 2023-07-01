@@ -90,7 +90,9 @@ return {
             "<leader>cc",
             function()
                 local builtin = require("telescope.builtin")
-                builtin.git_bcommits()
+                builtin.git_bcommits({
+                    initial_mode = "normal",
+                })
             end,
             desc = "Show commits for current buffer",
         },
