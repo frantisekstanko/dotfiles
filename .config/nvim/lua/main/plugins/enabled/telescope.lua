@@ -68,6 +68,7 @@ return {
                 end
 
                 require("telescope.builtin").grep_string({
+                    disable_coordinates = true,
                     initial_mode = "normal",
                     search = search,
                     additional_args = function()
