@@ -68,7 +68,9 @@ return {
     },
     ["gd"] = {
         function()
-            require("telescope.builtin").lsp_definitions()
+            require("telescope.builtin").lsp_definitions({
+                show_line = false,
+            })
         end,
         "Go to definition",
     },
