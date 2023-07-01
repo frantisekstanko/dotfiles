@@ -54,10 +54,4 @@ return {
         end,
         "Show hover info from LSP",
     },
-    ["<leader>k"] = {
-        function()
-            vim.cmd("WhichKey")
-        end,
-        "Show keymaps",
-    },
 }

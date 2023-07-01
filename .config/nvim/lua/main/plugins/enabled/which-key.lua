@@ -3,6 +3,15 @@ return {
     opts = {
         triggers = "",
     },
+    keys = {
+        {
+            "<leader>k",
+            function()
+                vim.cmd("WhichKey")
+            end,
+            desc = "Show keymaps",
+        },
+    },
     config = function()
         local wk = require("which-key")
 
