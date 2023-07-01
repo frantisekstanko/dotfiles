@@ -122,5 +122,45 @@ return {
             end,
             desc = "List buffer symbols using LSP",
         },
+        {
+            "<leader>C",
+            function()
+                require("telescope.builtin").find_files({
+                    initial_mode = "normal",
+                    cwd = "$HOME/.config/nvim",
+                })
+            end,
+            desc = "Show nvim config files",
+        },
+        {
+            "gi",
+            function()
+                require("telescope.builtin").lsp_implementations({
+                    initial_mode = "normal",
+                    show_line = false,
+                })
+            end,
+            desc = "Go to implementation",
+        },
+        {
+            "gd",
+            function()
+                require("telescope.builtin").lsp_definitions({
+                    show_line = false,
+                })
+            end,
+            desc = "Go to definition",
+        },
+        {
+            "gr",
+            function()
+                require("telescope.builtin").lsp_references({
+                    initial_mode = "normal",
+                    include_declaration = false,
+                    show_line = false,
+                })
+            end,
+            desc = "Go to references",
+        },
     },
 }

@@ -36,15 +36,6 @@ return {
         end,
         "Restart LSP",
     },
-    ["<leader>C"] = {
-        function()
-            require("telescope.builtin").find_files({
-                initial_mode = "normal",
-                cwd = "$HOME/.config/nvim",
-            })
-        end,
-        "Show nvim config files",
-    },
     ["[d"] = {
         function()
             vim.diagnostic.goto_prev()
@@ -56,33 +47,6 @@ return {
             vim.diagnostic.goto_next()
         end,
         "Go to next diagnostic",
-    },
-    ["gi"] = {
-        function()
-            require("telescope.builtin").lsp_implementations({
-                initial_mode = "normal",
-                show_line = false,
-            })
-        end,
-        "Go to implementation",
-    },
-    ["gd"] = {
-        function()
-            require("telescope.builtin").lsp_definitions({
-                show_line = false,
-            })
-        end,
-        "Go to definition",
-    },
-    ["gr"] = {
-        function()
-            require("telescope.builtin").lsp_references({
-                initial_mode = "normal",
-                include_declaration = false,
-                show_line = false,
-            })
-        end,
-        "Go to references",
     },
     ["K"] = {
         function()
