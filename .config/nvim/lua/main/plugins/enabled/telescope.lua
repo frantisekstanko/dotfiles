@@ -65,6 +65,7 @@ return {
                     prompt = "grep string: ",
                 }, function(input)
                     if input == nil or input == "" then
+                        print(" ")
                         return
                     end
 
