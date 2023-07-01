@@ -61,20 +61,22 @@ return {
         {
             "<C-f>",
             function()
-                local search = vim.fn.input("grep string: ")
+                vim.ui.input({
+                    prompt = "grep string: ",
+                }, function(input)
+                    if input == nil or input == "" then
+                        return
+                    end
 
-                if search == "" then
-                    return
-                end
-
-                require("telescope.builtin").grep_string({
-                    disable_coordinates = true,
-                    initial_mode = "normal",
-                    search = search,
-                    additional_args = function()
-                        return { "--hidden" }
-                    end,
-                })
+                    require("telescope.builtin").grep_string({
+                        disable_coordinates = true,
+                        initial_mode = "normal",
+                        search = input,
+                        additional_args = function()
+                            return { "--hidden" }
+                        end,
+                    })
+                end)
             end,
             desc = "Grep in all files in cwd",
         },
