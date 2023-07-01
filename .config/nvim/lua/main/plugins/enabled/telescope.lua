@@ -104,5 +104,20 @@ return {
             end,
             desc = "Search in modified on current branch",
         },
+        {
+            "<leader>e",
+            function()
+                local builtin = require("telescope.builtin")
+                builtin.lsp_document_symbols({
+                    initial_mode = "normal",
+                    symbol_width = 40,
+                    ignore_symbols = {
+                        "variable",
+                        "namespace",
+                    },
+                })
+            end,
+            desc = "List buffer symbols using LSP",
+        },
     },
 }

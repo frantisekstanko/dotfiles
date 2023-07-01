@@ -73,6 +73,7 @@ start properly.
 | gr | Go to references | nvim-lspconfig |
 | K | Show hover info for word under cursor | nvim-lspconfig |
 | \<leader\>cc | Show commits for current buffer | telescope |
+| \<leader\>e | List buffer symbols using Language Server Protocol | nvim-lspconfig |
 
 #### Giving credits
 
