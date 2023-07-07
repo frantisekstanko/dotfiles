@@ -162,5 +162,15 @@ return {
             end,
             desc = "Go to references",
         },
+        {
+            "<leader>\\",
+            function()
+                local builtin = require("telescope.builtin")
+                builtin.resume({
+                    initial_mode = "normal",
+                })
+            end,
+            desc = "Resume last telescope session",
+        },
     },
 }

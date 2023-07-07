@@ -74,6 +74,7 @@ start properly.
 | K | Show hover info for word under cursor | nvim-lspconfig |
 | \<leader\>cc | Show commits for current buffer | telescope |
 | \<leader\>e | List buffer symbols using Language Server Protocol | nvim-lspconfig |
+| \<leader\>\ | Resume last telescope session | telescope |
 
 #### Giving credits
 
