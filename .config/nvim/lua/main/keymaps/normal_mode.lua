@@ -31,9 +31,8 @@ return {
     },
     ["<leader>lr"] = {
         function()
-            vim.cmd("LspRestart")
-            vim.cmd("sleep 100m")
-            vim.cmd("e")
+            vim.lsp.stop_client(vim.lsp.get_active_clients())
+            vim.cmd("edit")
             require("notify")(" Lsp restarted", vim.log.levels.OK)
         end,
         "Restart LSP",
