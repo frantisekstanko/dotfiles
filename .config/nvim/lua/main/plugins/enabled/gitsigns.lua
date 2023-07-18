@@ -5,5 +5,10 @@ return {
         { "gn", "<cmd>Gitsigns next_hunk<CR>" },
         { "gN", "<cmd>Gitsigns prev_hunk<CR>" },
     },
-    opts = {},
+    opts = {
+        signs = {
+            add = { text = "▐" },
+            change = { text = "▐" },
+        },
+    },
 }
