@@ -159,6 +159,7 @@ return {
             "gd",
             function()
                 require("telescope.builtin").lsp_definitions({
+                    initial_mode = "normal",
                     show_line = false,
                     prompt_title = false,
                     results_title = "Definitions",
