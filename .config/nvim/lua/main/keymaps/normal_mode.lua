@@ -55,4 +55,10 @@ return {
         end,
         "Show hover info from LSP",
     },
+    ["<leader>w"] = {
+        function()
+            vim.cmd('normal! "+yiw')
+        end,
+        "Copy word under cursor into system clipboard",
+    },
 }
