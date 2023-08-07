@@ -17,6 +17,7 @@ return {
                     "intelephense",
                     "quick_lint_js",
                     "pylsp",
+                    "openscad_lsp",
                 },
             })
         end,
