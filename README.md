@@ -72,7 +72,7 @@ start properly.
 | gd | Go to definition | nvim-lspconfig |
 | gr | Go to references | nvim-lspconfig |
 | K | Show hover info for word under cursor | nvim-lspconfig |
-| \<leader\>cc | Show commits for current buffer | telescope |
+| \<leader\>cc | Show commits for current buffer | lazygit |
 | \<leader\>e | List buffer symbols using Language Server Protocol | nvim-lspconfig |
 | \<leader\>\ | Resume last telescope session | telescope |
 | \<leader\>w | Copy word under cursor into system clipboard | |
