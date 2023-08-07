@@ -16,7 +16,7 @@ All plugins load correctly on a clean install.
 
 #### Custom keymaps
 
-Column **Plugin* specifies which plugin is used to achieve the keymap action.
+Column *Plugin* specifies which plugin is used to achieve the keymap action.
 
 *(none)* means that the keymap is implemented natively, without relying
 on a plugin.
