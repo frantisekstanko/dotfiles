@@ -14,6 +14,7 @@ return {
                 width = 0.6,
                 height = 0.5,
             },
+            fullscreen = false,
         },
     },
 }
