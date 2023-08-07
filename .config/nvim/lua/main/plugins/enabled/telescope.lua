@@ -54,6 +54,8 @@ return {
             function()
                 require("telescope.builtin").git_files({
                     show_untracked = true,
+                    prompt_title = false,
+                    results_title = "Git files",
                 })
             end,
             desc = "Search in git files",
@@ -72,6 +74,8 @@ return {
                     require("telescope.builtin").grep_string({
                         disable_coordinates = true,
                         initial_mode = "normal",
+                        prompt_title = false,
+                        results_title = 'Git grep for "' .. input .. '"',
                         search = input,
                         additional_args = function()
                             return { "--hidden" }
@@ -85,7 +89,10 @@ return {
             "<leader>h",
             function()
                 local builtin = require("telescope.builtin")
-                builtin.help_tags()
+                builtin.help_tags({
+                    prompt_title = false,
+                    results_title = "Search in help tags",
+                })
             end,
             desc = "Search in help tags",
         },
@@ -118,6 +125,8 @@ return {
                         "variable",
                         "namespace",
                     },
+                    prompt_title = false,
+                    results_title = "Document symbols",
                 })
             end,
             desc = "List buffer symbols using LSP",
@@ -128,6 +137,8 @@ return {
                 require("telescope.builtin").find_files({
                     initial_mode = "normal",
                     cwd = "$HOME/.config/nvim",
+                    prompt_title = false,
+                    results_title = "neovim configuration",
                 })
             end,
             desc = "Show nvim config files",
@@ -138,6 +149,8 @@ return {
                 require("telescope.builtin").lsp_implementations({
                     initial_mode = "normal",
                     show_line = false,
+                    prompt_title = false,
+                    results_title = "Implementations",
                 })
             end,
             desc = "Go to implementation",
@@ -147,6 +160,8 @@ return {
             function()
                 require("telescope.builtin").lsp_definitions({
                     show_line = false,
+                    prompt_title = false,
+                    results_title = "Definitions",
                 })
             end,
             desc = "Go to definition",
@@ -160,6 +175,8 @@ return {
                     initial_mode = "normal",
                     include_declaration = false,
                     show_line = false,
+                    prompt_title = false,
+                    results_title = "References",
                 })
             end,
             desc = "Go to references",
