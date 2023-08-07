@@ -18,4 +18,7 @@ require("lazy").setup("main.plugins.enabled", {
         enabled = true,
         notify = false,
     },
+    ui = {
+        border = "double",
+    },
 })

@@ -24,11 +24,14 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "single",
+    border = "double",
 })
 
 vim.diagnostic.config({
     virtual_text = {
         spacing = 0,
+    },
+    float = {
+        border = "double",
     },
 })
