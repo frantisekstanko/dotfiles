@@ -61,6 +61,17 @@ return {
             desc = "Search in git files",
         },
         {
+            "<S-p>",
+            function()
+                require("telescope.builtin").find_files({
+                    hidden = true,
+                    prompt_title = false,
+                    results_title = "All files",
+                })
+            end,
+            desc = "Search in all files",
+        },
+        {
             "<C-f>",
             function()
                 vim.ui.input({
