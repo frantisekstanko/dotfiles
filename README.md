@@ -76,6 +76,7 @@ start properly.
 | \<leader\>e | List buffer symbols using Language Server Protocol | nvim-lspconfig |
 | \<leader\>\ | Resume last telescope session | telescope |
 | \<leader\>w | Copy word under cursor into system clipboard | |
+| \<leader\>b | Open git blame | git.nvim |
 
 #### Giving credits
 
