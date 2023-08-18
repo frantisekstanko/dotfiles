@@ -20,5 +20,12 @@ return {
             end,
             desc = "Show commits for current buffer",
         },
+        {
+            "<leader>g",
+            function()
+                vim.cmd("LazyGit")
+            end,
+            desc = "Open lazygit",
+        },
     },
 }

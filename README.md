@@ -77,6 +77,7 @@ start properly.
 | \<leader\>\ | Resume last telescope session | telescope |
 | \<leader\>w | Copy word under cursor into system clipboard | |
 | \<leader\>b | Open git blame | git.nvim |
+| \<leader\>g | Open lazygit | lazygit.nvim |
 
 #### Giving credits
 
