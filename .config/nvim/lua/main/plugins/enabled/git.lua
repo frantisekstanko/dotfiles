@@ -9,6 +9,7 @@ return {
         {
             "<leader>b",
             function()
+                require("barbecue.ui").toggle(false)
                 vim.cmd("GitBlame")
             end,
             desc = "Git blame",
