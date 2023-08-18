@@ -1,5 +1,8 @@
 return {
     "nvim-lualine/lualine.nvim",
+    dependencies = {
+        "arkav/lualine-lsp-progress",
+    },
     config = function()
         require("lualine").setup({
             options = {
@@ -18,6 +21,7 @@ return {
                 lualine_b = { "branch", "diff" },
                 lualine_c = {
                     { "filename" },
+                    { "lsp_progress" },
                     {
                         "diagnostics",
                         sources = { "nvim_lsp" },
