@@ -9,6 +9,10 @@ return {
                     left = "",
                     right = "",
                 },
+                component_separators = {
+                    left = "┃",
+                    right = "┃",
+                },
             },
         })
     end,
