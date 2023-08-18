@@ -18,6 +18,7 @@ vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/data/.nvim/undodir/"
 vim.opt.termguicolors = true
 vim.opt.mouse = nil
+vim.opt.cursorline = true
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
