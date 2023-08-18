@@ -14,6 +14,10 @@ return {
                     right = "┃",
                 },
             },
+            sections = {
+                lualine_b = { "branch", "diff" },
+                lualine_c = { "filename", "diagnostics" },
+            },
         })
     end,
 }
