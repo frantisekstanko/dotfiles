@@ -21,6 +21,12 @@ return {
                     {
                         "diagnostics",
                         sources = { "nvim_lsp" },
+                        symbols = {
+                            error = "ERR:",
+                            warn = "WARN:",
+                            info = "INFO:",
+                            hint = "HINT:",
+                        },
                     },
                 },
             },
