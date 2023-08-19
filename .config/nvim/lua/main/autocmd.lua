@@ -44,3 +44,13 @@ autocmd("FileType", {
         vim.opt.softtabstop = 4
     end,
 })
+
+autocmd("FileType", {
+    pattern = "php",
+    callback = function()
+        vim.api.nvim_command("set filetype=php")
+        vim.opt.shiftwidth = 4
+        vim.opt.tabstop = 4
+        vim.opt.softtabstop = 4
+    end,
+})
