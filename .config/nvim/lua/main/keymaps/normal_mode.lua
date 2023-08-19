@@ -61,4 +61,21 @@ return {
         end,
         "Copy word under cursor into system clipboard",
     },
+    ["<leader>R"] = {
+        function()
+            local word_under_cursor = vim.fn.expand("<cword>")
+            local go_left_three_times = vim.api.nvim_replace_termcodes(
+                "<Left><Left><Left>",
+                true,
+                false,
+                true
+            )
+            vim.api.nvim_feedkeys(
+                ":%s/" .. word_under_cursor .. "//gI" .. go_left_three_times,
+                "n",
+                false
+            )
+        end,
+        "Substitute word under cursor",
+    },
 }
