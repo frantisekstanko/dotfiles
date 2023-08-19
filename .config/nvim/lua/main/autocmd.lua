@@ -34,3 +34,13 @@ autocmd("FileType", {
         vim.opt.softtabstop = 2
     end,
 })
+
+autocmd("FileType", {
+    pattern = "twig",
+    callback = function()
+        vim.api.nvim_command("set filetype=html")
+        vim.opt.shiftwidth = 4
+        vim.opt.tabstop = 4
+        vim.opt.softtabstop = 4
+    end,
+})
