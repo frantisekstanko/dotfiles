@@ -16,12 +16,12 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "bashls",
-                    "lua_ls",
-                    "rust_analyzer",
                     "intelephense",
-                    "quick_lint_js",
-                    "pylsp",
+                    "lua_ls",
                     "openscad_lsp",
+                    "pylsp",
+                    "quick_lint_js",
+                    "rust_analyzer",
                 },
             })
         end,
