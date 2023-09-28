@@ -10,11 +10,13 @@ return {
     init = function()
         vim.g.barbar_auto_setup = false
 
-        local colors = require("gruvbox.palette").colors
-        local dark = colors.dark0
-        local green = colors.bright_green
-        local orange = colors.bright_orange
-        local light = colors.light0
+        local colors =
+            require("gruvbox.palette").get_base_colors({}, "dark", "")
+
+        local dark = colors.bg0
+        local green = colors.green
+        local orange = colors.orange
+        local light = colors.fg0
 
         vim.api.nvim_set_hl(0, "BufferCurrent", { fg = dark, bg = green })
         vim.api.nvim_set_hl(0, "BufferCurrentMod", { fg = dark, bg = orange })
