@@ -61,7 +61,7 @@ return {
             desc = "Search in git files",
         },
         {
-            "<S-p>",
+            "<leader>[",
             function()
                 require("telescope.builtin").find_files({
                     hidden = true,
