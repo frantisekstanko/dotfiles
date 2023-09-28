@@ -48,8 +48,8 @@ start properly.
 | \<leader\>ce | Enable copilot | copilot.lua |
 | \<leader\>cd | Disable copilot | copilot.lua |
 | \<leader\>cs | Copilot status | copilot.lua |
-| gn | Next modified chunk | gitsigns |
-| gN | Previous modified chunk | gitsigns |
+| ]g | Next modified chunk | gitsigns |
+| [g | Previous modified chunk | gitsigns |
 | \<leader\>z | Toggle zen mode | zen-mode |
 | \<leader\>U | Update (currently runs Lazy sync) | lazy.nvim |
 | \<leader\>T | Search in @TODO | todo-comments.nvim |
