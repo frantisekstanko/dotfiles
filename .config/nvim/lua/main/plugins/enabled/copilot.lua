@@ -47,7 +47,9 @@ return {
         end
 
         function CopilotStatus()
-            vim.cmd("Copilot status")
+            local status =
+                vim.api.nvim_exec2("Copilot status", { output = true })
+            vim.notify(status.output)
         end
 
         local cur_dir = vim.fn.expand("%:p:h")
