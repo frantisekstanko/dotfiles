@@ -38,12 +38,12 @@ return {
                     },
                 },
             })
-            require("notify")(" Copilot enabled", vim.log.levels.WARN)
+            vim.notify("Copilot enabled", vim.log.levels.WARN)
         end
 
         function CopilotDisable()
             vim.cmd("Copilot disable")
-            require("notify")(" Copilot disabled")
+            vim.notify("Copilot disabled")
         end
 
         function CopilotStatus()

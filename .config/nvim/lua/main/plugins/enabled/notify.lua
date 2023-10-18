@@ -1,7 +1,5 @@
 return {
-    "rcarriga/nvim-notify",
+    "vigoux/notifier.nvim",
     opts = {
-        render = "minimal",
-        stages = "static",
     },
 }
