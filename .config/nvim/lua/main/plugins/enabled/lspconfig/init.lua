@@ -8,5 +8,6 @@ return {
         require("main.plugins.enabled.lspconfig.servers.pylsp")
         require("main.plugins.enabled.lspconfig.servers.quick_lint_js")
         require("main.plugins.enabled.lspconfig.servers.rust_analyzer")
+        require("main.plugins.enabled.lspconfig.servers.tsserver")
     end,
 }

@@ -22,6 +22,7 @@ return {
                     "pylsp",
                     "quick_lint_js",
                     "rust_analyzer",
+                    "tsserver",
                 },
             })
         end,
