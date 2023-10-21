@@ -101,8 +101,7 @@ return {
             desc = "Search in help tags",
             "<leader>h",
             function()
-                local builtin = require("telescope.builtin")
-                builtin.help_tags({
+                require("telescope.builtin").help_tags({
                     prompt_title = false,
                     results_title = "Search in help tags",
                 })
