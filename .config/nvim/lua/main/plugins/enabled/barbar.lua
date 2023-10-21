@@ -6,6 +6,8 @@ return {
         { desc = "Next buffer", "<A-.>", "<cmd>BufferNext<CR>" },
         { desc = "Close buffer", "<A-/>", "<cmd>BufferClose<CR>" },
         { desc = "Restore buffer", "<A-?>", "<cmd>BufferRestore<CR>" },
+        { desc = "Move buffer left", "<A-<>", "<cmd>BufferMovePrevious<CR>" },
+        { desc = "Move buffer right", "<A->>", "<cmd>BufferMoveNext<CR>" },
     },
     init = function()
         vim.g.barbar_auto_setup = false

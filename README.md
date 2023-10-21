@@ -45,6 +45,8 @@ start properly.
 | \<A-.\> | Next buffer | barbar |
 | \<A-/\> | Close buffer | barbar |
 | \<A-?\> | Restore buffer | barbar |
+| \<A-\<\> | Move buffer left | barbar |
+| \<A-\>\> | Move buffer right | barbar |
 | \<leader\>ce | Enable copilot | copilot.lua |
 | \<leader\>cd | Disable copilot | copilot.lua |
 | \<leader\>cs | Copilot status | copilot.lua |
