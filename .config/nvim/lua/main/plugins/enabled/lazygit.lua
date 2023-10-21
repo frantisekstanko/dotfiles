@@ -14,18 +14,18 @@ return {
     end,
     keys = {
         {
+            desc = "Show commits for current buffer",
             "<leader>cc",
             function()
                 vim.cmd("LazyGitFilterCurrentFile")
             end,
-            desc = "Show commits for current buffer",
         },
         {
+            desc = "Open lazygit",
             "<leader>g",
             function()
                 vim.cmd("LazyGit")
             end,
-            desc = "Open lazygit",
         },
     },
 }

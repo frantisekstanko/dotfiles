@@ -4,11 +4,11 @@ return {
     lazy = false,
     keys = {
         {
+            desc = "Open last session",
             "<leader>o",
             function()
                 require("persistence").load()
             end,
-            desc = "Open last session",
         },
     },
     opts = {

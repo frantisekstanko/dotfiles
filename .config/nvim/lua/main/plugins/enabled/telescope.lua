@@ -51,6 +51,7 @@ return {
     end,
     keys = {
         {
+            desc = "Search in git files",
             "<C-p>",
             function()
                 require("telescope.builtin").git_files({
@@ -59,9 +60,9 @@ return {
                     results_title = "Git files",
                 })
             end,
-            desc = "Search in git files",
         },
         {
+            desc = "Search in all files",
             "<leader>[",
             function()
                 require("telescope.builtin").find_files({
@@ -70,9 +71,9 @@ return {
                     results_title = "All files",
                 })
             end,
-            desc = "Search in all files",
         },
         {
+            desc = "Grep in all files in cwd",
             "<C-f>",
             function()
                 vim.ui.input({
@@ -95,9 +96,9 @@ return {
                     })
                 end)
             end,
-            desc = "Grep in all files in cwd",
         },
         {
+            desc = "Search in help tags",
             "<leader>h",
             function()
                 local builtin = require("telescope.builtin")
@@ -106,17 +107,17 @@ return {
                     results_title = "Search in help tags",
                 })
             end,
-            desc = "Search in help tags",
         },
         {
+            desc = "Search in modified on current branch",
             "<leader>m",
             function()
                 local git_diff = require("telescope").extensions.git_diff
                 git_diff.modified_on_current_branch()
             end,
-            desc = "Search in modified on current branch",
         },
         {
+            desc = "List buffer symbols using LSP",
             "<leader>e",
             function()
                 local builtin = require("telescope.builtin")
@@ -131,9 +132,9 @@ return {
                     results_title = "Document symbols",
                 })
             end,
-            desc = "List buffer symbols using LSP",
         },
         {
+            desc = "Show nvim config files",
             "<leader>C",
             function()
                 require("telescope.builtin").find_files({
@@ -143,9 +144,9 @@ return {
                     results_title = "neovim configuration",
                 })
             end,
-            desc = "Show nvim config files",
         },
         {
+            desc = "Go to implementation",
             "gi",
             function()
                 require("telescope.builtin").lsp_implementations({
@@ -155,9 +156,9 @@ return {
                     results_title = "Implementations",
                 })
             end,
-            desc = "Go to implementation",
         },
         {
+            desc = "Go to definition",
             "gd",
             function()
                 require("telescope.builtin").lsp_definitions({
@@ -167,9 +168,9 @@ return {
                     results_title = "Definitions",
                 })
             end,
-            desc = "Go to definition",
         },
         {
+            desc = "Go to references",
             "gr",
             function()
                 print("Looking for references ...")
@@ -182,9 +183,9 @@ return {
                     results_title = "References",
                 })
             end,
-            desc = "Go to references",
         },
         {
+            desc = "Resume last telescope session",
             "<leader>\\",
             function()
                 local builtin = require("telescope.builtin")
@@ -192,7 +193,6 @@ return {
                     initial_mode = "normal",
                 })
             end,
-            desc = "Resume last telescope session",
         },
     },
 }

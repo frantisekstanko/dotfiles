@@ -3,25 +3,25 @@ return {
     event = "BufEnter",
     keys = {
         {
+            desc = "Enable copilot",
             "<leader>ce",
             function()
                 CopilotEnable()
             end,
-            desc = "Enable copilot",
         },
         {
+            desc = "Disable copilot",
             "<leader>cd",
             function()
                 CopilotDisable()
             end,
-            desc = "Disable copilot",
         },
         {
+            desc = "Copilot status",
             "<leader>cs",
             function()
                 CopilotStatus()
             end,
-            desc = "Copilot status",
         },
     },
     config = function()

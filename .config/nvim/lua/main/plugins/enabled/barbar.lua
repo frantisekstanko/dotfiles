@@ -2,10 +2,10 @@ return {
     "romgrk/barbar.nvim",
     lazy = false,
     keys = {
-        { "<A-,>", "<cmd>BufferPrevious<CR>", desc = "Previous buffer" },
-        { "<A-.>", "<cmd>BufferNext<CR>", desc = "Next buffer" },
-        { "<A-/>", "<cmd>BufferClose<CR>", desc = "Close buffer" },
-        { "<A-?>", "<cmd>BufferRestore<CR>", desc = "Restore buffer" },
+        { desc = "Previous buffer", "<A-,>", "<cmd>BufferPrevious<CR>" },
+        { desc = "Next buffer", "<A-.>", "<cmd>BufferNext<CR>" },
+        { desc = "Close buffer", "<A-/>", "<cmd>BufferClose<CR>" },
+        { desc = "Restore buffer", "<A-?>", "<cmd>BufferRestore<CR>" },
     },
     init = function()
         vim.g.barbar_auto_setup = false

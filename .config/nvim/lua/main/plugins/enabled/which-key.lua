@@ -6,11 +6,11 @@ return {
     },
     keys = {
         {
+            desc = "Show keymaps",
             "<leader>k",
             function()
                 vim.cmd("WhichKey")
             end,
-            desc = "Show keymaps",
         },
     },
     config = function()
