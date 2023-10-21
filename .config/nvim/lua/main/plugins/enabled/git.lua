@@ -1,11 +1,9 @@
 return {
     "dinhhuy258/git.nvim",
-    config = function()
-        require("git").setup({
-            default_mappings = false,
-            winbar = true,
-        })
-    end,
+    opts = {
+        default_mappings = false,
+        winbar = true,
+    },
     keys = {
         {
             desc = "Git blame",
