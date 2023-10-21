@@ -12,22 +12,20 @@ return {
     init = function()
         vim.g.barbar_auto_setup = false
     end,
-    config = function()
-        require("barbar").setup({
-            animation = false,
-            clickable = false,
-            icons = {
-                button = false,
-                modified = { button = "" },
-                separator = { left = " " },
-                filetype = {
-                    enabled = false,
-                },
+    opts = {
+        animation = false,
+        clickable = false,
+        icons = {
+            button = false,
+            modified = { button = "" },
+            separator = { left = " " },
+            filetype = {
+                enabled = false,
             },
-            focus_on_close = "right",
-            insert_at_end = true,
-            maximum_padding = 1,
-            maximum_length = 32,
-        })
-    end,
+        },
+        focus_on_close = "right",
+        insert_at_end = true,
+        maximum_padding = 1,
+        maximum_length = 32,
+    },
 }
