@@ -30,8 +30,9 @@ return {
                 layout_strategy = "horizontal",
                 layout_config = {
                     horizontal = {
+                        anchor = "S",
                         width = 0.98,
-                        height = 0.95,
+                        height = 0.97,
                         prompt_position = "top",
                     },
                 },
