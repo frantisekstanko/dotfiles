@@ -1,9 +1,5 @@
 return {
     "dinhhuy258/git.nvim",
-    opts = {
-        default_mappings = false,
-        winbar = true,
-    },
     keys = {
         {
             desc = "Git blame",
@@ -12,5 +8,9 @@ return {
                 vim.cmd("GitBlame")
             end,
         },
+    },
+    opts = {
+        default_mappings = false,
+        winbar = true,
     },
 }
