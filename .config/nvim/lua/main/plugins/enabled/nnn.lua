@@ -12,7 +12,7 @@ return {
             cmd = "nnn -A",
             style = {
                 width = 0.6,
-                height = 0.5,
+                height = 0.7,
                 border = "double",
             },
             fullscreen = false,
