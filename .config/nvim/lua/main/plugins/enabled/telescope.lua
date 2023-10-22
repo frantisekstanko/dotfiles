@@ -71,6 +71,7 @@ return {
                     hidden = true,
                     prompt_title = false,
                     results_title = "All files",
+                    no_ignore = true,
                 })
             end,
         },
