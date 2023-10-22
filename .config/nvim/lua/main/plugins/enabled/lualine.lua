@@ -1,8 +1,5 @@
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = {
-        "arkav/lualine-lsp-progress",
-    },
     opts = {
         options = {
             icons_enabled = false,
@@ -20,7 +17,6 @@ return {
             lualine_b = { "branch", "diff" },
             lualine_c = {
                 { "filename" },
-                { "lsp_progress" },
                 {
                     "diagnostics",
                     sources = { "nvim_lsp" },
