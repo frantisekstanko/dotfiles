@@ -9,7 +9,7 @@ return {
     },
     opts = {
         picker = {
-            cmd = "nnn -A",
+            cmd = "nnn -A -H",
             style = {
                 width = 0.6,
                 height = 0.7,
