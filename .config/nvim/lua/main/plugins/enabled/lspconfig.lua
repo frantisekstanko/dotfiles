@@ -27,7 +27,6 @@ return {
         for _, lsp in ipairs({
             "bashls",
             "intelephense",
-            "openscad_lsp",
             "pylsp",
             "quick_lint_js",
             "rust_analyzer",
