@@ -78,4 +78,15 @@ return {
         end,
         "Substitute word under cursor",
     },
+    ["<leader>M"] = {
+        function()
+            local filelist =
+                vim.fn.systemlist("git diff --name-only --relative main...HEAD")
+
+            for _, file in ipairs(filelist) do
+                vim.cmd("edit " .. file)
+            end
+        end,
+        "Open all modified files on current branch",
+    },
 }

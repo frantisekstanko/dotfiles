@@ -56,6 +56,7 @@ start properly.
 | \<leader\>U | Update (currently runs Lazy sync) | lazy.nvim |
 | \<leader\>T | Search in @TODO | todo-comments.nvim |
 | \<leader\>m | Search in modified on current branch | telescope |
+| \<leader\>M | Open all modified files on current branch | *(none)* |
 | \<C-u\> | During autocompletion: previous item | nvim-cmp |
 | \<C-d\> | During autocompletion: next item | nvim-cmp |
 | \<CR\> | During autocompletion: confirm selection | nvim-cmp |
