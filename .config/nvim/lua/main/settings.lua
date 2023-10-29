@@ -30,6 +30,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 
 vim.diagnostic.config({
     virtual_text = {
+        severity_sort = true,
         spacing = 0,
     },
     float = {
