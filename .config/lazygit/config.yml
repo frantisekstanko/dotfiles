@@ -8,3 +8,4 @@ gui:
   showFileTree: false
   commandLogSize: 16
   sidePanelWidth: 0.25
+  nerdFontsVersion: "3"
