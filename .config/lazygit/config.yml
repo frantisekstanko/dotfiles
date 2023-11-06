@@ -5,3 +5,4 @@ gui:
       - bold
     inactiveBorderColor:
       - '#666'
+  showFileTree: false
