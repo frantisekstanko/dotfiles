@@ -6,3 +6,4 @@ gui:
     inactiveBorderColor:
       - '#666'
   showFileTree: false
+  commandLogSize: 16
