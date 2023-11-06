@@ -20,3 +20,17 @@ git:
 keybinding:
   universal:
     pushFiles: null
+
+customCommands:
+  - key: 'P'
+    context: 'commits'
+    prompts:
+      - type: 'menu'
+        title: ''
+        key: 'confirm'
+        options:
+          - name: 'git push'
+            description: 'up to selected commit'
+            value: ''
+    command: "git push origin {{.SelectedLocalCommit.Sha}}:{{.CheckedOutBranch.Name}}"
+    loadingText: 'pushing up to selected commit ...'
