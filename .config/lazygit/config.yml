@@ -7,3 +7,4 @@ gui:
       - '#666'
   showFileTree: false
   commandLogSize: 16
+  sidePanelWidth: 0.25
