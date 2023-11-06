@@ -9,3 +9,5 @@ gui:
   commandLogSize: 16
   sidePanelWidth: 0.25
   nerdFontsVersion: "3"
+
+promptToReturnFromSubprocess: false
