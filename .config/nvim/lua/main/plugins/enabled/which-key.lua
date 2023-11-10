@@ -1,9 +1,7 @@
 return {
     "folke/which-key.nvim",
     lazy = false,
-    opts = {
-        triggers = "",
-    },
+    opts = {},
     keys = {
         {
             desc = "Show keymaps",
