@@ -26,7 +26,6 @@ return {
 
         for _, lsp in ipairs({
             "bashls",
-            "intelephense",
             "pylsp",
             "quick_lint_js",
             "rust_analyzer",
@@ -37,6 +36,20 @@ return {
                 settings = {},
             })
         end
+
+        lspconfig["intelephense"].setup({
+            capabilities = lsp_capabilities,
+            settings = {
+                intelephense = {
+                    files = {
+                        associations = {
+                            "*.php",
+                            "*.php5",
+                        },
+                    },
+                },
+            },
+        })
 
         lspconfig["lua_ls"].setup({
             capabilities = lsp_capabilities,
