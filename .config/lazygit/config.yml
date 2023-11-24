@@ -20,6 +20,8 @@ git:
 keybinding:
   universal:
     pushFiles: null
+  commits:
+    viewResetOptions: 'G'
 
 customCommands:
   - key: 'P'
