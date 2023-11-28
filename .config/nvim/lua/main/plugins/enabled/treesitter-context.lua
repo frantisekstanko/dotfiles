@@ -1,6 +1,9 @@
 return {
     "nvim-treesitter/nvim-treesitter-context",
     event = "BufEnter",
+    opts = {
+        max_lines = 1,
+    },
     keys = {
         {
             "[c",
