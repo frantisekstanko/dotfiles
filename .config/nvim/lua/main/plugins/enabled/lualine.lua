@@ -1,6 +1,10 @@
 return {
     "nvim-lualine/lualine.nvim",
     config = function()
+        local gruvbox = require("lualine.themes.gruvbox")
+
+        gruvbox.insert.a.bg = gruvbox.visual.a.bg
+
         require("lualine").setup({
             options = {
                 icons_enabled = false,
