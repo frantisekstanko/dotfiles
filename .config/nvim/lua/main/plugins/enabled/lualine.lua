@@ -17,6 +17,7 @@ return {
                     left = "┃",
                     right = "┃",
                 },
+                globalstatus = true,
             },
             sections = {
                 lualine_b = { "branch", "diff" },
