@@ -20,6 +20,14 @@ return {
                 globalstatus = true,
             },
             sections = {
+                lualine_a = {
+                    {
+                        "mode",
+                        fmt = function(mode)
+                            return " " .. mode .. " "
+                        end,
+                    },
+                },
                 lualine_b = { "branch", "diff" },
                 lualine_c = {
                     { "filename" },
