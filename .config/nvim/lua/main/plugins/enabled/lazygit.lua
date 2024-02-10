@@ -2,13 +2,6 @@ return {
     "kdheepak/lazygit.nvim",
     keys = {
         {
-            desc = "Show commits for current buffer",
-            "<leader>cc",
-            function()
-                vim.cmd("LazyGitFilterCurrentFile")
-            end,
-        },
-        {
             desc = "Open lazygit",
             "<leader>g",
             function()
