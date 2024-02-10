@@ -11,7 +11,7 @@ return {
         picker = {
             cmd = "nnn -A -H -J",
             style = {
-                width = 0.6,
+                width = 0.3,
                 height = 0.7,
                 border = "double",
             },
