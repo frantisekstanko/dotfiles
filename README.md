@@ -83,6 +83,7 @@ start properly.
 | \<leader\>w | Copy word under cursor into system clipboard | |
 | \<leader\>b | Open git blame | git.nvim |
 | \<leader\>g | Open lazygit | lazygit.nvim |
+| \<leader\>u | Insert UUID into current position | |
 
 #### Giving credits
 

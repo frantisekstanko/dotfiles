@@ -91,4 +91,11 @@ return {
         end,
         "Open all modified files on current branch",
     },
+    ["<leader>u"] = {
+        function()
+            local uuid = vim.fn.systemlist("uuidgen")[1]
+            vim.api.nvim_put({ uuid }, "c", false, true)
+        end,
+        "Insert UUID into current position",
+    },
 }
