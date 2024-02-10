@@ -2,7 +2,7 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     event = "BufEnter",
     opts = {
-        max_lines = 1,
+        max_lines = 5,
     },
     keys = {
         {
