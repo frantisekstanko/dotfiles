@@ -18,5 +18,6 @@ return {
             add = { text = "▐" },
             change = { text = "▐" },
         },
+        base = "main",
     },
 }
