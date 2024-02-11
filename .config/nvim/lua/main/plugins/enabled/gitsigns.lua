@@ -15,8 +15,8 @@ return {
     },
     opts = {
         signs = {
-            add = { text = "▐" },
-            change = { text = "▐" },
+            add = { text = "▓" },
+            change = { text = "▓" },
         },
         base = "main",
     },
