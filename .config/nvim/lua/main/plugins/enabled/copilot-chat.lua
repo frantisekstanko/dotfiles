@@ -7,18 +7,18 @@ return {
     event = "VeryLazy",
     keys = {
         {
-            desc = "Copilot Chat",
+            desc = "Copilot Chat for current buffer",
             "<leader>cc",
             function()
                 vim.ui.input({
-                    prompt = "Copilot Chat: ",
+                    prompt = "Copilot Chat for current buffer: ",
                 }, function(input)
                     if input == nil or input == "" then
                         print(" ")
                         return
                     end
 
-                    vim.cmd("CopilotChat " .. input)
+                    vim.cmd("CopilotChatBuffer " .. input)
                 end)
             end,
         },
