@@ -27,14 +27,22 @@ return {
                     "┗",
                 },
                 sorting_strategy = "ascending",
-                layout_strategy = "horizontal",
+                layout_strategy = "flex",
                 layout_config = {
+                    flip_columns = 200,
                     horizontal = {
                         anchor = "S",
                         width = 0.98,
                         height = 0.97,
                         prompt_position = "top",
                         preview_width = 0.5,
+                    },
+                    vertical = {
+                        anchor = "S",
+                        width = 0.98,
+                        height = 0.97,
+                        prompt_position = "top",
+                        mirror = true,
                     },
                 },
             },
