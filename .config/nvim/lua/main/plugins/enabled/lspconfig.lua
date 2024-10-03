@@ -46,6 +46,9 @@ return {
             capabilities = lsp_capabilities,
             settings = {
                 intelephense = {
+                    completion = {
+                        fullyQualifyGlobalConstantsAndFunctions = true,
+                    },
                     files = {
                         associations = {
                             "*.php",
