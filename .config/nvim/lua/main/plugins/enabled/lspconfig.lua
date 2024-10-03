@@ -34,7 +34,7 @@ return {
             "pylsp",
             "quick_lint_js",
             "rust_analyzer",
-            "tsserver",
+            "ts_ls",
         }) do
             lspconfig[lsp].setup({
                 capabilities = lsp_capabilities,
