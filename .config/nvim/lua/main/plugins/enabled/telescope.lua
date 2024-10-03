@@ -122,8 +122,7 @@ return {
             desc = "Search in modified on current branch",
             "<leader>m",
             function()
-                local git_diff = require("telescope").extensions.git_diff
-                git_diff.modified_on_current_branch()
+                require("telescope").extensions.git_diff.modified_on_current_branch()
             end,
         },
         {
