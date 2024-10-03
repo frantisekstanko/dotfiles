@@ -55,6 +55,10 @@ return {
                             "*.php5",
                         },
                     },
+                    diagnostics = {
+                        relaxedTypeCheck = false,
+                        noMixedTypeCheck = false,
+                    },
                 },
             },
         })
