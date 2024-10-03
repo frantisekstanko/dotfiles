@@ -59,6 +59,9 @@ return {
                         relaxedTypeCheck = false,
                         noMixedTypeCheck = false,
                     },
+                    compatibility = {
+                        preferPsalmPhpstanPrefixedAnnotations = true,
+                    },
                 },
             },
         })
