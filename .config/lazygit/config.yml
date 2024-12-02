@@ -32,8 +32,8 @@ customCommands:
         title: ''
         key: 'confirm'
         options:
-          - name: 'git push'
+          - name: 'git push (force)'
             description: 'up to selected commit'
             value: ''
-    command: "git push origin {{.SelectedLocalCommit.Sha}}:{{.CheckedOutBranch.Name}}"
+    command: "git push --force-with-lease origin {{.SelectedLocalCommit.Sha}}:{{.CheckedOutBranch.Name}}"
     loadingText: 'pushing up to selected commit ...'
