@@ -7,7 +7,7 @@ gui:
       - '#666'
   showFileTree: false
   commandLogSize: 16
-  sidePanelWidth: 0.25
+  sidePanelWidth: 0.3
   nerdFontsVersion: "3"
   scrollHeight: 20
 
