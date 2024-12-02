@@ -126,6 +126,15 @@ return {
             end,
         },
         {
+            desc = "Search in modified on current branch against dev",
+            "<leader>,",
+            function()
+                require("telescope").extensions.git_diff.modified_on_current_branch({
+                    diff_against_branch = "dev",
+                })
+            end,
+        },
+        {
             desc = "Commit history for current file",
             "<leader>=",
             function()
