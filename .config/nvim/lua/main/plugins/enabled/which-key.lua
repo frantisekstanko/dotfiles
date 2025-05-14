@@ -76,7 +76,9 @@ return {
         {
             "K",
             function()
-                vim.lsp.buf.hover()
+                vim.lsp.buf.hover({
+                    border = "double",
+                })
             end,
             desc = "Show hover info from LSP",
         },
