@@ -47,9 +47,6 @@ start properly.
 | \<A-?\> | Restore buffer | barbar |
 | \<A-\<\> | Move buffer left | barbar |
 | \<A-\>\> | Move buffer right | barbar |
-| \<leader\>ce | Enable copilot | copilot.lua |
-| \<leader\>cd | Disable copilot | copilot.lua |
-| \<leader\>cs | Copilot status | copilot.lua |
 | ]g | Next modified chunk | gitsigns |
 | [g | Previous modified chunk | gitsigns |
 | \<leader\>z | Toggle zen mode | zen-mode |
