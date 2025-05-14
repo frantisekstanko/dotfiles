@@ -29,7 +29,7 @@ return {
                 sorting_strategy = "ascending",
                 layout_strategy = "flex",
                 layout_config = {
-                    flip_columns = 200,
+                    flip_columns = 130,
                     horizontal = {
                         anchor = "S",
                         width = 0.98,
