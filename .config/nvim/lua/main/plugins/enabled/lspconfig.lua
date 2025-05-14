@@ -57,7 +57,7 @@ return {
                     },
                     diagnostics = {
                         relaxedTypeCheck = false,
-                        noMixedTypeCheck = false,
+                        noMixedTypeCheck = true,
                     },
                     compatibility = {
                         preferPsalmPhpstanPrefixedAnnotations = true,
