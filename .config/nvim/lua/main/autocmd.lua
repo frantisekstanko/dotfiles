@@ -27,7 +27,7 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
-    pattern = "javascript,scss,lua,typescript,json,css",
+    pattern = "javascript,scss,lua,typescript,json,css,typescriptreact",
     callback = function()
         vim.opt.shiftwidth = 2
         vim.opt.tabstop = 2
