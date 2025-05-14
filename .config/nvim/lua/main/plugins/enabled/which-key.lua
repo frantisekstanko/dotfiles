@@ -130,6 +130,13 @@ return {
             end,
             desc = "Insert UUID into current position",
         },
+        {
+            "<leader>cc",
+            function()
+                vim.cmd("CopilotChat")
+            end,
+            desc = "Open copilot chat",
+        },
     },
     config = function()
         local wk = require("which-key")

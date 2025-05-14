@@ -47,6 +47,7 @@ start properly.
 | \<A-?\> | Restore buffer | barbar |
 | \<A-\<\> | Move buffer left | barbar |
 | \<A-\>\> | Move buffer right | barbar |
+| \<leader\>cc | Open copilot chat | CopilotChat.nvim |
 | ]g | Next modified chunk | gitsigns |
 | [g | Previous modified chunk | gitsigns |
 | \<leader\>z | Toggle zen mode | zen-mode |
