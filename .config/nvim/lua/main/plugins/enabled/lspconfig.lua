@@ -22,7 +22,6 @@ return {
         "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-        local lspconfig = require("lspconfig")
         local lsp_capabilities = vim.tbl_deep_extend(
             "force",
             vim.lsp.protocol.make_client_capabilities(),
@@ -36,13 +35,13 @@ return {
             "rust_analyzer",
             "ts_ls",
         }) do
-            lspconfig[lsp].setup({
+            vim.lsp.config(lsp, {
                 capabilities = lsp_capabilities,
                 settings = {},
             })
         end
 
-        lspconfig["intelephense"].setup({
+        vim.lsp.config("intelephense", {
             capabilities = lsp_capabilities,
             settings = {
                 intelephense = {
@@ -66,7 +65,7 @@ return {
             },
         })
 
-        lspconfig["lua_ls"].setup({
+        vim.lsp.config("lua_ls", {
             capabilities = lsp_capabilities,
             settings = {
                 Lua = {
