@@ -20,7 +20,7 @@ git:
 
 keybinding:
   universal:
-    pushFiles: null
+    pushFiles: <disabled>
   commits:
     viewResetOptions: 'G'
 
