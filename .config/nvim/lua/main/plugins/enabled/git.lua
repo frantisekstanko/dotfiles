@@ -2,11 +2,11 @@ return {
     "dinhhuy258/git.nvim",
     keys = {
         {
-            desc = "Git blame",
             "<leader>b",
             function()
                 vim.cmd("GitBlame")
             end,
+            desc = "Git blame",
         },
     },
     opts = {
