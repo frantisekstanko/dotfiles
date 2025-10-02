@@ -21,6 +21,8 @@ vim.opt.mouse = nil
 vim.opt.cursorline = true
 vim.opt.showmode = false
 vim.opt.backupcopy = "yes"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
