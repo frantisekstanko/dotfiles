@@ -26,31 +26,33 @@ autocmd("FileType", {
     end,
 })
 
-autocmd("FileType", {
-    pattern = "javascript,scss,lua,typescript,json,css,typescriptreact",
-    callback = function()
-        vim.opt.shiftwidth = 2
-        vim.opt.tabstop = 2
-        vim.opt.softtabstop = 2
-    end,
-})
+local filetype_settings = {
+    {
+        filetypes = {
+            "javascript",
+            "scss",
+            "lua",
+            "typescript",
+            "json",
+            "css",
+            "typescriptreact",
+        },
+        indent = 2,
+    },
+    { filetypes = { "twig" }, indent = 4, set_filetype = "html" },
+    { filetypes = { "php" }, indent = 4 },
+}
 
-autocmd("FileType", {
-    pattern = "twig",
-    callback = function()
-        vim.api.nvim_command("set filetype=html")
-        vim.opt.shiftwidth = 4
-        vim.opt.tabstop = 4
-        vim.opt.softtabstop = 4
-    end,
-})
-
-autocmd("FileType", {
-    pattern = "php",
-    callback = function()
-        vim.api.nvim_command("set filetype=php")
-        vim.opt.shiftwidth = 4
-        vim.opt.tabstop = 4
-        vim.opt.softtabstop = 4
-    end,
-})
+for _, config in ipairs(filetype_settings) do
+    autocmd("FileType", {
+        pattern = config.filetypes,
+        callback = function()
+            if config.set_filetype then
+                vim.bo.filetype = config.set_filetype
+            end
+            vim.opt.shiftwidth = config.indent
+            vim.opt.tabstop = config.indent
+            vim.opt.softtabstop = config.indent
+        end,
+    })
+end
