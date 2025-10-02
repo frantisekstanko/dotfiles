@@ -49,7 +49,6 @@ start properly.
 | \<A-\>\>     | Move buffer right                                              | barbar                     |
 | ]g           | Next modified chunk                                            | gitsigns                   |
 | [g           | Previous modified chunk                                        | gitsigns                   |
-| \<leader\>z  | Toggle zen mode                                                | zen-mode                   |
 | \<leader\>U  | Update (currently runs Lazy sync)                              | lazy.nvim                  |
 | \<leader\>T  | Search in @TODO                                                | todo-comments.nvim         |
 | \<leader\>m  | Search in modified on current branch against the 'main' branch | telescope                  |
