@@ -84,6 +84,7 @@ start properly.
 | \<leader\>g | Open lazygit | lazygit.nvim |
 | \<leader\>u | Insert UUID into current position | |
 | \<leader\>= | Commit history for current file | advanced-git-search |
+| \<leader\>n | Show modified in last commit | telescope |
 
 #### Giving credits
 

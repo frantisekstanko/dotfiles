@@ -126,6 +126,13 @@ return {
             end,
         },
         {
+            desc = "Show modified in last commit",
+            "<leader>n",
+            function()
+                require("telescope").extensions.git_diff.modified_in_last_commit()
+            end,
+        },
+        {
             desc = "Search in modified on current branch against dev",
             "<leader>,",
             function()
